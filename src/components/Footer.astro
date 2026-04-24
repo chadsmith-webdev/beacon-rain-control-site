@@ -16,11 +16,7 @@ const year = new Date().getFullYear();
         <p class="text-sm leading-relaxed mb-4" style="color: var(--color-content-muted);">
           Seamless gutter installation and repair serving Johnson County and Tarrant County, TX.
         </p>
-        <a
-          href={site.phoneLink}
-          class="text-base font-semibold hover:underline"
-          style="color: var(--color-brand-accent);"
-        >
+        <a href={site.phoneLink} class="text-base font-semibold hover:underline" style="color: var(--color-brand-accent-dark);">
           {site.phone}
         </a>
         <p class="text-xs mt-1" style="color: var(--color-content-muted);">{site.hours}</p>
@@ -28,17 +24,11 @@ const year = new Date().getFullYear();
 
       <!-- Services -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Services</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Services</h3>
         <ul class="space-y-2">
           {site.services.map((s) => (
             <li>
-              <a
-                href={`/services#${s.slug}`}
-                class="text-sm hover:text-[var(--color-brand-accent)] transition-colors"
-                style="color: var(--color-content-muted);"
-              >
-                {s.name}
-              </a>
+              <a href={`/services#${s.slug}`} class="footer-link text-sm">{s.name}</a>
             </li>
           ))}
         </ul>
@@ -46,33 +36,28 @@ const year = new Date().getFullYear();
 
       <!-- Service areas -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Service Areas</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Service Areas</h3>
         <ul class="space-y-2">
           {site.serviceAreas.slice(0, 8).map((area) => (
-            <li class="text-sm" style="color: var(--color-content-muted);">{area}</li>
+            <li class="footer-link text-sm">{area}</li>
           ))}
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Contact</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Contact</h3>
         <address class="not-italic space-y-2">
           <p class="text-sm" style="color: var(--color-content-muted);">
             {site.address.street}<br />
             {site.address.city}, {site.address.state} {site.address.zip}
           </p>
-          <p>
-            <a href={site.phoneLink} class="text-sm hover:underline" style="color: var(--color-content-muted);">{site.phone}</a>
-          </p>
-          <p>
-            <a href={`mailto:${site.email}`} class="text-sm hover:underline" style="color: var(--color-content-muted);">{site.email}</a>
-          </p>
+          <p><a href={site.phoneLink} class="footer-link text-sm">{site.phone}</a></p>
+          <p><a href={`mailto:${site.email}`} class="footer-link text-sm">{site.email}</a></p>
         </address>
         <a
           href="/contact"
-          class="inline-block mt-6 text-sm font-semibold px-5 py-2.5 rounded border transition-colors"
-          style="border-color: var(--color-brand-accent); color: var(--color-brand-accent);"
+          class="nav-cta inline-block mt-6 text-sm font-semibold px-5 py-2.5 rounded border"
         >
           Get a Free Estimate
         </a>

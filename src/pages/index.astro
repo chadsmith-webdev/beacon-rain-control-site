@@ -46,18 +46,10 @@ const schema = {
           When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="/contact"
-            class="inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm transition-colors"
-            style="background-color: var(--color-brand-accent); color: #fff;"
-          >
+          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
             Get a Free Estimate
           </a>
-          <a
-            href={site.phoneLink}
-            class="inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border transition-colors"
-            style="border-color: var(--color-border-strong); color: var(--color-content-primary);"
-          >
+          <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
             Call {site.phone}
           </a>
         </div>
@@ -103,17 +95,10 @@ const schema = {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {site.services.map((service) => (
-          <article
-            class="rounded-xl p-6 border flex flex-col gap-3"
-            style="background-color: var(--color-surface-base); border-color: var(--color-border);"
-          >
+          <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
             <h3 class="font-semibold text-base" style="color: var(--color-content-primary);">{service.name}</h3>
             <p class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">{service.description}</p>
-            <a
-              href={`/services#${service.slug}`}
-              class="text-sm font-semibold hover:underline mt-auto"
-              style="color: var(--color-brand-accent);"
-            >
+            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-accent);">
               Learn more &rarr;
             </a>
           </article>
@@ -187,11 +172,7 @@ const schema = {
           { step: '03', title: 'Clean install, clean yard', body: 'Gutters go up, old materials come down, and we clean up before we leave. You get a warranty card and a clean gutterline.' },
         ].map((item) => (
           <div class="flex flex-col gap-4">
-            <div
-              class="text-3xl font-bold"
-              style={`font-family: var(--font-family-mono); color: var(--color-brand-accent); opacity: 0.4;`}
-              aria-hidden="true"
-            >
+            <div class="text-3xl font-bold" style="font-family: var(--font-family-mono); color: var(--color-brand-accent); opacity: 0.5;" aria-hidden="true">
               {item.step}
             </div>
             <h3 class="text-lg font-semibold" style="color: var(--color-content-primary);">{item.title}</h3>
@@ -234,18 +215,10 @@ const schema = {
         Free estimates, no contracts, {site.warranty} warranty. Call or fill out the form — we'll get back to you the same day.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold transition-colors"
-          style="background-color: var(--color-brand-accent); color: #fff;"
-        >
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">
           Get a Free Estimate
         </a>
-        <a
-          href={site.phoneLink}
-          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold border transition-colors"
-          style="border-color: var(--color-border-strong); color: var(--color-content-primary);"
-        >
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-8 py-4 rounded font-semibold border">
           Call {site.phone}
         </a>
       </div>

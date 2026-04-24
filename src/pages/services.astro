@@ -95,7 +95,7 @@ const services = [
                 class="rounded-xl p-6 border h-full"
                 style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
               >
-                <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-content-muted);">What's included</p>
+                <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">What's included</p>
                 <ul class="space-y-3">
                   {service.details.map((detail) => (
                     <li class="flex items-start gap-3">
@@ -124,18 +124,10 @@ const services = [
         Call or send a message — we'll come take a look and give you a straight answer. Free, no obligation.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold transition-colors"
-          style="background-color: var(--color-brand-accent); color: #fff;"
-        >
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">
           Get a Free Estimate
         </a>
-        <a
-          href={site.phoneLink}
-          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold border"
-          style="border-color: var(--color-border-strong); color: var(--color-content-primary);"
-        >
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-8 py-4 rounded font-semibold border">
           Call {site.phone}
         </a>
       </div>

@@ -3,7 +3,7 @@
 import site from '../data/site.json';
 ---
 
-<header class="sticky top-0 z-40 border-b" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
+<header class="sticky top-0 z-40 border-b" style="background-color: var(--color-surface-dark); border-color: var(--color-border);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
@@ -14,26 +14,22 @@ import site from '../data/site.json';
 
       <!-- Desktop nav -->
       <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
-        <a href="/services" class="text-sm font-medium transition-colors hover:text-[var(--color-brand-accent)]" style="color: var(--color-content-muted);">Services</a>
-        <a href="/about" class="text-sm font-medium transition-colors hover:text-[var(--color-brand-accent)]" style="color: var(--color-content-muted);">About</a>
-        <a href="/contact" class="text-sm font-medium transition-colors hover:text-[var(--color-brand-accent)]" style="color: var(--color-content-muted);">Contact</a>
+        <a href="/services" class="nav-link text-sm font-medium">Services</a>
+        <a href="/about" class="nav-link text-sm font-medium">About</a>
+        <a href="/contact" class="nav-link text-sm font-medium">Contact</a>
       </nav>
 
-      <!-- CTA -->
+      <!-- Desktop CTA -->
       <div class="hidden md:flex items-center gap-4">
         <a
           href={site.phoneLink}
-          class="text-sm font-semibold transition-colors hover:text-[var(--color-brand-accent)]"
-          style="color: var(--color-content-primary);"
+          class="nav-link text-sm font-semibold"
         >
           {site.phone}
         </a>
         <a
           href="/contact"
-          class="text-sm font-semibold px-4 py-2 rounded border transition-colors"
-          style="border-color: var(--color-brand-accent); color: var(--color-brand-accent);"
-          onmouseover="this.style.backgroundColor='var(--color-brand-accent)';this.style.color='var(--color-surface-bg)';"
-          onmouseout="this.style.backgroundColor='transparent';this.style.color='var(--color-brand-accent)';"
+          class="nav-cta text-sm font-semibold px-4 py-2 rounded border"
         >
           Get a Free Estimate
         </a>
@@ -75,8 +71,7 @@ import site from '../data/site.json';
       </a>
       <a
         href="/contact"
-        class="text-sm font-semibold px-4 py-3 rounded border text-center"
-        style="border-color: var(--color-brand-accent); color: var(--color-brand-accent);"
+        class="nav-cta text-sm font-semibold px-4 py-3 rounded border text-center"
       >
         Get a Free Estimate
       </a>
