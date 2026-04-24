@@ -255,14 +255,13 @@ const testimonials = [
         ))}
       </div>
       <!-- On-site fabrication photo -->
-      <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
+      <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border); aspect-ratio: 16/6;">
         <Image
           src={fabricationImg}
           alt="Tracy fabricating seamless gutters on-site with a gutter machine"
           width={1200}
-          height={480}
-          class="w-full object-cover"
-          style="max-height: 360px;"
+          height={450}
+          class="w-full h-full object-cover object-center"
         />
       </div>
     </div>
@@ -278,36 +277,21 @@ const testimonials = [
         </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
-          <Image
-            src={galleryImg1}
-            alt="Seamless gutter installation on a two-story brick home"
-            width={600}
-            height={450}
-            class="w-full h-full object-cover"
-            style="aspect-ratio: 4/3;"
-          />
-        </div>
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
-          <Image
-            src={galleryImg2}
-            alt="Beacon Rain Control technician installing gutters on a stone home"
-            width={600}
-            height={450}
-            class="w-full h-full object-cover"
-            style="aspect-ratio: 4/3;"
-          />
-        </div>
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
-          <Image
-            src={galleryImg3}
-            alt="Gutter installation in progress on a brick ranch home"
-            width={600}
-            height={450}
-            class="w-full h-full object-cover"
-            style="aspect-ratio: 4/3;"
-          />
-        </div>
+        {[
+          { src: galleryImg1, alt: "Seamless gutter installation on a two-story brick home" },
+          { src: galleryImg2, alt: "Beacon Rain Control technician installing gutters on a stone home" },
+          { src: galleryImg3, alt: "Gutter installation in progress on a brick ranch home" },
+        ].map(({ src, alt }) => (
+          <div class="group rounded-xl overflow-hidden" style="border: 1px solid var(--color-border); aspect-ratio: 4/3;">
+            <Image
+              src={src}
+              alt={alt}
+              width={600}
+              height={450}
+              class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          </div>
+        ))}
       </div>
     </div>
   </section>
