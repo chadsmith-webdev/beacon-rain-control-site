@@ -97,6 +97,19 @@ textarea:focus-visible {
   color: var(--color-surface-bg);
 }
 
+/* Hero secondary CTA — white-bordered outline on photo background */
+.hero-cta-ghost {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+.hero-cta-ghost:hover {
+  border-color: rgba(254, 136, 54, 0.6);
+  background-color: rgba(254, 136, 54, 0.12);
+}
+
 /* Footer links */
 .footer-link {
   color: var(--color-content-muted);

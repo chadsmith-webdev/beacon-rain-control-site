@@ -56,46 +56,52 @@ const testimonials = [
 <BaseLayout title={title} description={description}>
 
   <!-- Hero -->
-  <section style="background: radial-gradient(ellipse 90% 60% at 5% 0%, rgba(254,136,54,0.09) 0%, var(--color-surface-bg) 65%);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
 
-        <!-- Text -->
-        <div>
-          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
-            Joshua, TX &mdash; Johnson &amp; Tarrant County
-          </p>
-          <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
-            Seamless Gutters That Protect Your Home for Years
-          </h1>
-          <p class="text-lg leading-relaxed mb-8" style="color: var(--color-content-muted);">
-            When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
-              Get a Free Estimate
-            </a>
-            <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
-              Call {site.phone}
-            </a>
-          </div>
-          <p class="text-xs mt-4" style="color: var(--color-content-muted);">No contracts &bull; Free estimates &bull; {site.warranty} warranty</p>
-        </div>
+    <!-- Background image -->
+    <Image
+      src={heroImg}
+      alt=""
+      width={1400}
+      height={800}
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      aria-hidden="true"
+    />
 
-        <!-- Hero image -->
-        <div class="hidden lg:block rounded-xl overflow-hidden" style="border: 1px solid var(--color-border-strong);">
-          <Image
-            src={heroImg}
-            alt="Seamless gutters installed on a Texas brick and stone home"
-            width={700}
-            height={520}
-            class="w-full h-full object-cover"
-            loading="eager"
-          />
+    <!-- Gradient overlay: heavy on left where text sits, lighter on right so the photo breathes -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(100deg, rgba(9,11,18,0.88) 0%, rgba(9,11,18,0.72) 45%, rgba(9,11,18,0.40) 100%), linear-gradient(to top, rgba(9,11,18,0.70) 0%, transparent 40%);"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center" style="min-height: clamp(560px, 70vh, 760px);">
+      <div class="max-w-xl py-20">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
+          Joshua, TX &mdash; Johnson &amp; Tarrant County
+        </p>
+        <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: #ffffff;">
+          Seamless Gutters That Protect Your Home for Years
+        </h1>
+        <p class="text-lg leading-relaxed mb-8" style="color: rgba(242,241,239,0.85);">
+          When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+            Get a Free Estimate
+          </a>
+          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+            Call {site.phone}
+          </a>
         </div>
+        <p class="text-xs mt-4" style="color: rgba(242,241,239,0.55);">No contracts &bull; Free estimates &bull; {site.warranty} warranty</p>
       </div>
     </div>
-    <div class="h-px" style="background-color: var(--color-border);"></div>
+
+    <!-- Bottom fade into next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to bottom, transparent, var(--color-surface-bg));" aria-hidden="true"></div>
   </section>
 
   <!-- Trust bar -->
