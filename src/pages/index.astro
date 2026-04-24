@@ -1,7 +1,14 @@
 ---
-// Homepage — hero, services summary, trust signals, process, service areas, CTA
+// Homepage — hero, services, trust signals, testimonials, process, gallery, service areas, CTA
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
 import site from '../data/site.json';
+
+import heroImg        from '../assets/images/seamless-gutter.jpg';
+import fabricationImg from '../assets/images/copper-gutter-fabrication.webp';
+import galleryImg1    from '../assets/images/residential-seamless-gutter-installation1.jpg';
+import galleryImg2    from '../assets/images/brc-seamlessgutter_installation.jpg';
+import galleryImg3    from '../assets/images/seemlass-gutter-installation-2.jpg';
 
 const title = 'Seamless Gutter Installation in Joshua, TX | Beacon Rain Control';
 const description = 'Beacon Rain Control installs seamless aluminum gutters in Joshua, Burleson, Cleburne, and throughout Johnson County, TX. Free estimates. 5-year warranty. Call (817) 681-6041.';
@@ -29,31 +36,63 @@ const schema = {
   },
   openingHours: 'Mo-Sa 08:00-18:00',
 };
+
+const testimonials = [
+  {
+    quote: "Mr. Neff was courteous, responsive, and extremely knowledgeable when I reached out for a quote. His team did exceptional work and left the area clean when the job was complete. They provide a 5-year warranty on their work. Absolutely a great company — I will use Beacon Rain Control exclusively for all related work going forward.",
+    author: "Beth James",
+  },
+  {
+    quote: "Tracy was professional from beginning to end. They did a great job, showed up on time and cleaned up when they were done. I highly recommend Beacon Rain Control!",
+    author: "Cecilia",
+  },
+  {
+    quote: "Came out and got me a quote the same day I called. Professional and efficient, did a great job.",
+    author: "Jake Bransford",
+  },
+];
 ---
 
 <BaseLayout title={title} description={description}>
+
   <!-- Hero -->
   <section style="background: radial-gradient(ellipse 90% 60% at 5% 0%, rgba(254,136,54,0.09) 0%, var(--color-surface-bg) 65%);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-      <div class="max-w-3xl">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
-          Joshua, TX &mdash; Johnson &amp; Tarrant County
-        </p>
-        <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
-          Seamless Gutters That Protect Your Home for Years
-        </h1>
-        <p class="text-lg leading-relaxed mb-8" style="color: var(--color-content-muted);">
-          When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
-            Get a Free Estimate
-          </a>
-          <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
-            Call {site.phone}
-          </a>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Text -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
+            Joshua, TX &mdash; Johnson &amp; Tarrant County
+          </p>
+          <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+            Seamless Gutters That Protect Your Home for Years
+          </h1>
+          <p class="text-lg leading-relaxed mb-8" style="color: var(--color-content-muted);">
+            When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+              Get a Free Estimate
+            </a>
+            <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+              Call {site.phone}
+            </a>
+          </div>
+          <p class="text-xs mt-4" style="color: var(--color-content-muted);">No contracts &bull; Free estimates &bull; {site.warranty} warranty</p>
         </div>
-        <p class="text-xs mt-4" style="color: var(--color-content-muted);">No contracts &bull; Free estimates &bull; {site.warranty} warranty</p>
+
+        <!-- Hero image -->
+        <div class="hidden lg:block rounded-xl overflow-hidden" style="border: 1px solid var(--color-border-strong);">
+          <Image
+            src={heroImg}
+            alt="Seamless gutters installed on a Texas brick and stone home"
+            width={700}
+            height={520}
+            class="w-full h-full object-cover"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
     <div class="h-px" style="background-color: var(--color-border);"></div>
@@ -97,7 +136,6 @@ const schema = {
           Gutter services built around your home
         </h2>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {site.services.map((service) => (
           <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
@@ -128,7 +166,6 @@ const schema = {
             Every job is backed by a {site.warranty} warranty. If something isn't right, we come back and make it right.
           </p>
         </div>
-
         <div class="grid grid-cols-1 gap-4">
           {[
             { label: 'Same-day quotes', detail: 'Most estimates are turned around the same day you call.' },
@@ -136,15 +173,8 @@ const schema = {
             { label: 'Clean jobsite', detail: 'We haul everything out — no debris left behind.' },
             { label: '5-year warranty', detail: 'All gutter installations are backed by a written warranty.' },
           ].map((item) => (
-            <div
-              class="rounded-xl p-5 border flex gap-4 items-start"
-              style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
-            >
-              <div
-                class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                style="background-color: var(--color-brand-tint);"
-                aria-hidden="true"
-              >
+            <div class="rounded-xl p-5 border flex gap-4 items-start" style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);">
+              <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background-color: var(--color-brand-tint);" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3" style="color: var(--color-brand-accent);">
                   <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
                 </svg>
@@ -160,8 +190,42 @@ const schema = {
     </div>
   </section>
 
-  <!-- Process -->
+  <!-- Testimonials -->
   <section class="py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What Customers Say</p>
+        <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          The work speaks for itself
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <figure class="rounded-xl p-6 border flex flex-col gap-4" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
+            <div class="flex gap-0.5" aria-label="5 out of 5 stars">
+              {Array(5).fill(null).map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4" style="color: var(--color-brand-accent);" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <figcaption class="text-xs font-semibold" style="color: var(--color-content-primary);">
+              &mdash; {t.author}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="text-xs text-center mt-6" style="color: var(--color-content-muted);">
+        From Google Business Profile &bull; {site.rating} stars &bull; {site.reviewCount} reviews
+      </p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 md:py-24" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-xl">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">How It Works</p>
@@ -169,8 +233,7 @@ const schema = {
           From first call to finished gutters
         </h2>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
         {[
           { step: '01', title: 'Free estimate', body: 'Call or email — we come out, measure your roofline, and give you a straight quote. No pressure, no obligation.' },
           { step: '02', title: 'Custom fabrication on-site', body: 'We cut and form your gutters on-site from a continuous run of aluminum. Fit to your home, not off a shelf.' },
@@ -184,6 +247,61 @@ const schema = {
             <p class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.body}</p>
           </div>
         ))}
+      </div>
+      <!-- On-site fabrication photo -->
+      <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
+        <Image
+          src={fabricationImg}
+          alt="Tracy fabricating seamless gutters on-site with a gutter machine"
+          width={1200}
+          height={480}
+          class="w-full object-cover"
+          style="max-height: 360px;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Work gallery -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Our Work</p>
+        <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          Real homes in Johnson County
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
+          <Image
+            src={galleryImg1}
+            alt="Seamless gutter installation on a two-story brick home"
+            width={600}
+            height={450}
+            class="w-full h-full object-cover"
+            style="aspect-ratio: 4/3;"
+          />
+        </div>
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
+          <Image
+            src={galleryImg2}
+            alt="Beacon Rain Control technician installing gutters on a stone home"
+            width={600}
+            height={450}
+            class="w-full h-full object-cover"
+            style="aspect-ratio: 4/3;"
+          />
+        </div>
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid var(--color-border);">
+          <Image
+            src={galleryImg3}
+            alt="Gutter installation in progress on a brick ranch home"
+            width={600}
+            height={450}
+            class="w-full h-full object-cover"
+            style="aspect-ratio: 4/3;"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -199,10 +317,7 @@ const schema = {
       </div>
       <div class="flex flex-wrap gap-3">
         {site.serviceAreas.map((area) => (
-          <span
-            class="text-sm px-3 py-1.5 rounded-full border"
-            style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);"
-          >
+          <span class="text-sm px-3 py-1.5 rounded-full border" style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);">
             {area}
           </span>
         ))}
