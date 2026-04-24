@@ -6,11 +6,10 @@
   --color-brand-accent-dark: #d96e1a;
   --color-brand-tint: #2a1a08;
 
-  /* Surfaces — warm near-black pulled from brand orange */
-  --color-surface-dark: #131b3c;
-  --color-surface-base: #9eabe0;
-  --color-surface-bg: #1e2c60;
-  --color-surface-raised: #3d58c1;
+  /* Surfaces — very dark navy near-blacks; hue from logo navy #263778 */
+  --color-surface-bg: #090b12;
+  --color-surface-base: #0e1220;
+  --color-surface-raised: #151c30;
 
   /* Content — passes 4.5:1 on all three surfaces */
   --color-content-primary: #f2f1ef;
@@ -76,6 +75,13 @@ textarea:focus-visible {
 }
 .nav-link:hover {
   color: var(--color-brand-accent);
+}
+
+/* Active nav link — current page indicator */
+.nav-link[aria-current="page"] {
+  color: var(--color-content-primary);
+  border-bottom: 2px solid var(--color-brand-accent);
+  padding-bottom: 2px;
 }
 
 /* Nav CTA — outline pill that fills on hover */
