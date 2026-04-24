@@ -1,0 +1,225 @@
+---
+// Contact page — estimate request form, phone, address, and schema
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+
+const title = 'Get a Free Gutter Estimate | Beacon Rain Control — Joshua, TX';
+const description = 'Request a free gutter estimate from Beacon Rain Control in Joshua, TX. Call (817) 681-6041 or fill out the form. Same-day response. Serving Johnson County and Tarrant County.';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: site.name,
+  telephone: site.phone,
+  email: site.email,
+  url: site.siteUrl,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.zip,
+    addressCountry: 'US',
+  },
+  openingHours: 'Mo-Sa 08:00-18:00',
+  areaServed: site.serviceAreas,
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+  <!-- Page header -->
+  <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Get in Touch</p>
+      <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Get a Free Estimate
+      </h1>
+      <p class="text-lg max-w-xl" style="color: var(--color-content-muted);">
+        Fill out the form or call — we'll get back to you the same day and set up a time to come take a look.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <form
+            name="estimate-request"
+            method="POST"
+            action="/thank-you"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="flex flex-col gap-6"
+          >
+            <input type="hidden" name="form-name" value="estimate-request" />
+            <p class="hidden" aria-hidden="true"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label for="name" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  class="rounded-lg px-4 py-3 text-sm border outline-none transition-colors"
+                  style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong); color: var(--color-content-primary);"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="phone" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Phone number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  autocomplete="tel"
+                  class="rounded-lg px-4 py-3 text-sm border outline-none transition-colors"
+                  style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong); color: var(--color-content-primary);"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="address" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Property address</label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                autocomplete="street-address"
+                class="rounded-lg px-4 py-3 text-sm border outline-none transition-colors"
+                style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong); color: var(--color-content-primary);"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="service" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">What do you need?</label>
+              <select
+                id="service"
+                name="service"
+                class="rounded-lg px-4 py-3 text-sm border outline-none transition-colors appearance-none"
+                style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong); color: var(--color-content-primary);"
+              >
+                <option value="">Select a service…</option>
+                {site.services.map((s) => (
+                  <option value={s.slug}>{s.name}</option>
+                ))}
+                <option value="not-sure">Not sure — need someone to take a look</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Anything else we should know? <span style="color: var(--color-content-muted); font-weight: 400;">(optional)</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="rounded-lg px-4 py-3 text-sm border outline-none transition-colors resize-none"
+                style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong); color: var(--color-content-primary);"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="self-start inline-flex items-center justify-center px-8 py-3.5 rounded font-semibold text-sm transition-colors"
+              style="background-color: var(--color-brand-accent); color: #fff;"
+            >
+              Send My Estimate Request
+            </button>
+
+            <p class="text-xs" style="color: var(--color-content-muted);">
+              We typically respond the same day. No spam — your info stays with us.
+            </p>
+          </form>
+        </div>
+
+        <!-- Contact info sidebar -->
+        <aside class="lg:col-span-2 flex flex-col gap-8">
+          <div
+            class="rounded-xl p-6 border"
+            style="background-color: var(--color-surface-base); border-color: var(--color-border);"
+          >
+            <h2 class="text-sm font-semibold uppercase tracking-widest mb-5" style="color: var(--color-brand-accent);">Contact Info</h2>
+            <div class="flex flex-col gap-5">
+              <div>
+                <p class="text-xs uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Phone</p>
+                <a
+                  href={site.phoneLink}
+                  class="text-lg font-semibold hover:underline"
+                  style="color: var(--color-content-primary);"
+                >
+                  {site.phone}
+                </a>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Email</p>
+                <a
+                  href={`mailto:${site.email}`}
+                  class="text-base hover:underline"
+                  style="color: var(--color-content-primary);"
+                >
+                  {site.email}
+                </a>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Hours</p>
+                <p class="text-base" style="color: var(--color-content-primary);">{site.hours}</p>
+                <p class="text-sm" style="color: var(--color-content-muted);">Closed Sunday</p>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Address</p>
+                <address class="not-italic text-base" style="color: var(--color-content-primary);">
+                  {site.address.street}<br />
+                  {site.address.city}, {site.address.state} {site.address.zip}
+                </address>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="rounded-xl p-6 border"
+            style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
+          >
+            <p class="text-sm font-semibold mb-2" style="color: var(--color-content-primary);">Prefer to call?</p>
+            <p class="text-sm mb-4" style="color: var(--color-content-muted);">
+              Most customers get a quote the same day they call. We can usually schedule installs within the week.
+            </p>
+            <a
+              href={site.phoneLink}
+              class="inline-flex items-center gap-2 text-sm font-semibold"
+              style="color: var(--color-brand-accent);"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4" aria-hidden="true">
+                <path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd" />
+              </svg>
+              {site.phone}
+            </a>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Map -->
+      <div class="mt-16">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Find Us</p>
+        <div class="rounded-xl overflow-hidden border" style="border-color: var(--color-border);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3366.2729282458945!2d-97.391529688041!3d32.46539097368604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e67c0187fdae7%3A0x7b68fe45a6ec4056!2sBeacon%20Rain%20Control!5e0!3m2!1sen!2sus!4v1777050468582!5m2!1sen!2sus"
+            width="100%"
+            height="400"
+            style="border: 0; display: block;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Beacon Rain Control location — 505 N Main St, Joshua, TX 76058"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

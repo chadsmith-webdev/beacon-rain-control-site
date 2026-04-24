@@ -1,0 +1,144 @@
+---
+// Services page — full breakdown of each gutter service
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+
+const title = 'Gutter Services in Joshua & Johnson County, TX | Beacon Rain Control';
+const description = 'Seamless gutter installation, gutter repair, gutter guards, and downspout installation throughout Johnson County and Tarrant County, TX. Free estimates — call (817) 681-6041.';
+
+const services = [
+  {
+    slug: 'seamless-gutter-installation',
+    name: 'Seamless Gutter Installation',
+    intro: 'Traditional sectional gutters have joints every 10–12 feet — every joint is a place where water can back up, leak, or pull away from the fascia. Seamless gutters eliminate that problem.',
+    details: [
+      'Aluminum cut to exact length on-site — no exposed seams along the run',
+      'Available in multiple colors to match your trim and roofline',
+      'Properly pitched and anchored to handle heavy Texas rain events',
+      'Backed by a 5-year warranty on labor and workmanship',
+    ],
+    note: 'Most residential installs are completed in a single day.',
+  },
+  {
+    slug: 'gutter-repair',
+    name: 'Gutter Repair',
+    intro: 'Sagging gutters, leaking joints, gutters pulling away from the fascia — these aren\'t cosmetic problems. They\'re water damage waiting to happen. We diagnose what\'s actually wrong and fix it.',
+    details: [
+      'Re-hanging gutters that have pulled away from the fascia',
+      'Repairing or resealing leaking joints and end caps',
+      'Correcting pitch so water drains toward downspouts instead of pooling',
+      'Replacing damaged sections when repair isn\'t the right call',
+    ],
+    note: 'Call before a small sag becomes a rotted fascia board.',
+  },
+  {
+    slug: 'gutter-guards',
+    name: 'Gutter Guards & Leaf Guards',
+    intro: 'Gutters clogged with leaves and debris overflow — and overflowing gutters do the same damage as no gutters at all. The right guard depends on the trees around your home and your roof type.',
+    details: [
+      'Micro-mesh guards for heavy tree coverage (pine needles, small debris)',
+      'Solid cover systems for moderate leaf loads',
+      'Properly fitted to existing or new gutter systems',
+      'Reduces cleaning frequency significantly — most homes go years between cleanings',
+    ],
+    note: 'We\'ll tell you which guard actually fits your situation — not just the most expensive option.',
+  },
+  {
+    slug: 'downspout-installation',
+    name: 'Downspout Installation',
+    intro: 'A gutter is only as good as its downspouts. Undersized, incorrectly placed, or too few downspouts back up the whole system. Water sits, overflows, and finds your foundation.',
+    details: [
+      'Sized correctly for your gutter width and roof square footage',
+      'Placed to move water away from foundations, driveways, and landscaping',
+      'Underground extensions available to carry water further from the home',
+      'Added to existing gutter runs when the current layout isn\'t draining properly',
+    ],
+    note: 'Most homes need one downspout per 30–40 linear feet of gutter.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Page header -->
+  <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What We Do</p>
+      <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Gutter Services
+      </h1>
+      <p class="text-lg max-w-2xl" style="color: var(--color-content-muted);">
+        From full seamless gutter installations to repairs and guards — we do one thing and we do it right.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services detail -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-20">
+        {services.map((service, i) => (
+          <div id={service.slug} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
+            <div class="lg:col-span-3">
+              <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
+                {String(i + 1).padStart(2, '0')}
+              </p>
+              <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+                {service.name}
+              </h2>
+              <p class="text-base leading-relaxed mb-6" style="color: var(--color-content-muted);">{service.intro}</p>
+              {service.note && (
+                <p class="text-sm italic" style="color: var(--color-brand-accent);">{service.note}</p>
+              )}
+            </div>
+            <div class="lg:col-span-2">
+              <div
+                class="rounded-xl p-6 border h-full"
+                style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
+              >
+                <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-content-muted);">What's included</p>
+                <ul class="space-y-3">
+                  {service.details.map((detail) => (
+                    <li class="flex items-start gap-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mt-0.5 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-28" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Not sure what you need?
+      </h2>
+      <p class="text-lg mb-8 max-w-lg mx-auto" style="color: var(--color-content-muted);">
+        Call or send a message — we'll come take a look and give you a straight answer. Free, no obligation.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold transition-colors"
+          style="background-color: var(--color-brand-accent); color: #fff;"
+        >
+          Get a Free Estimate
+        </a>
+        <a
+          href={site.phoneLink}
+          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold border"
+          style="border-color: var(--color-border-strong); color: var(--color-content-primary);"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

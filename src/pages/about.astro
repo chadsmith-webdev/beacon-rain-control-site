@@ -1,0 +1,152 @@
+---
+// About page — the business story, owner, service area, and values
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+
+const title = 'About Beacon Rain Control | Joshua, TX Gutter Company';
+const description = 'Beacon Rain Control is a family-owned gutter company based in Joshua, TX. Serving Johnson County and Tarrant County with seamless gutter installation, repair, and guards.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Page header -->
+  <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">About Us</p>
+      <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        A gutter company that shows up and does the job right
+      </h1>
+      <p class="text-lg max-w-2xl" style="color: var(--color-content-muted);">
+        Based in Joshua, TX. Serving Johnson County and Tarrant County homeowners since day one.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div>
+          <h2 class="font-bold mb-6" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+            Built on showing up when we say we will
+          </h2>
+          <div class="space-y-4 text-base leading-relaxed" style="color: var(--color-content-muted);">
+            <p>
+              Beacon Rain Control was built on a simple idea: do quality gutter work, show up on time, leave the job cleaner than you found it, and stand behind what you installed.
+            </p>
+            <p>
+              We specialize in seamless aluminum gutter installation because it's the right product for this climate. Texas gets real rain — short, hard storms that overwhelm gutters with joints and sags. Seamless gutters handle that. We cut every run on-site so it fits your home exactly.
+            </p>
+            <p>
+              Every installation comes with a 5-year warranty. Not because we're required to offer it — because we build them to last and we're confident enough to back that up in writing.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          {[
+            { label: 'Based in', value: 'Joshua, TX' },
+            { label: 'Service area', value: 'Johnson County & Tarrant County' },
+            { label: 'Rating', value: `${site.rating} stars (${site.reviewCount} Google reviews)` },
+            { label: 'Warranty', value: `${site.warranty} on all installations` },
+            { label: 'Hours', value: site.hours },
+            { label: 'Estimates', value: 'Always free, no obligation' },
+          ].map((item) => (
+            <div
+              class="flex items-start gap-4 rounded-xl p-5 border"
+              style="background-color: var(--color-surface-base); border-color: var(--color-border);"
+            >
+              <div class="min-w-[120px] text-xs font-semibold uppercase tracking-widest pt-0.5" style="color: var(--color-content-muted);">{item.label}</div>
+              <div class="text-sm font-medium" style="color: var(--color-content-primary);">{item.value}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What you can expect -->
+  <section class="py-20 md:py-24" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 max-w-xl">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What to Expect</p>
+        <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          How we work
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'We give you a real quote',
+            body: 'We come out, measure, and give you a price — in writing, same day when possible. No vague estimates, no bait-and-switch on the day of install.',
+          },
+          {
+            title: 'We show up when we say we will',
+            body: 'Your time matters. We schedule a window, we show up in it. If something changes on our end, we call you ahead of time — not after.',
+          },
+          {
+            title: 'We leave your yard clean',
+            body: 'Old gutters, downspout straps, packaging, every scrap — gone before we leave. You\'ll know the gutters are new because you can see them. You won\'t know we were there from the ground.',
+          },
+        ].map((item) => (
+          <div>
+            <h3 class="text-base font-semibold mb-3" style="color: var(--color-content-primary);">{item.title}</h3>
+            <p class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service area -->
+  <section class="py-20 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Service Area</p>
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          Joshua, TX and the surrounding communities
+        </h2>
+        <p class="text-base max-w-xl" style="color: var(--color-content-muted);">
+          We're based in Joshua and serve homes throughout Johnson County and into Tarrant County. Not sure if we cover your area? Call and ask — we'll be straight with you.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {site.serviceAreas.map((area) => (
+          <span
+            class="text-sm px-3 py-1.5 rounded-full border"
+            style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);"
+          >
+            {area}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 md:py-28" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Ready to get a free estimate?
+      </h2>
+      <p class="text-lg mb-8 max-w-md mx-auto" style="color: var(--color-content-muted);">
+        Call us or fill out the form. We'll get back to you the same day.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold transition-colors"
+          style="background-color: var(--color-brand-accent); color: #fff;"
+        >
+          Get a Free Estimate
+        </a>
+        <a
+          href={site.phoneLink}
+          class="inline-flex items-center justify-center px-8 py-4 rounded font-semibold border"
+          style="border-color: var(--color-border-strong); color: var(--color-content-primary);"
+        >
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

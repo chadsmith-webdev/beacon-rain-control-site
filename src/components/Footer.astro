@@ -1,0 +1,91 @@
+---
+// Footer — site-wide footer with contact info, service list, and service areas
+import site from '../data/site.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t mt-20" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div class="md:col-span-1">
+        <a href="/" aria-label="Beacon Rain Control — Home">
+          <img src="/logo.svg" alt="Beacon Rain Control" class="h-10 w-auto mb-4" />
+        </a>
+        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Seamless gutter installation and repair serving Johnson County and Tarrant County, TX.
+        </p>
+        <a
+          href={site.phoneLink}
+          class="text-base font-semibold hover:underline"
+          style="color: var(--color-brand-accent);"
+        >
+          {site.phone}
+        </a>
+        <p class="text-xs mt-1" style="color: var(--color-content-muted);">{site.hours}</p>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Services</h3>
+        <ul class="space-y-2">
+          {site.services.map((s) => (
+            <li>
+              <a
+                href={`/services#${s.slug}`}
+                class="text-sm hover:text-[var(--color-brand-accent)] transition-colors"
+                style="color: var(--color-content-muted);"
+              >
+                {s.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Service areas -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Service Areas</h3>
+        <ul class="space-y-2">
+          {site.serviceAreas.slice(0, 8).map((area) => (
+            <li class="text-sm" style="color: var(--color-content-muted);">{area}</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Contact</h3>
+        <address class="not-italic space-y-2">
+          <p class="text-sm" style="color: var(--color-content-muted);">
+            {site.address.street}<br />
+            {site.address.city}, {site.address.state} {site.address.zip}
+          </p>
+          <p>
+            <a href={site.phoneLink} class="text-sm hover:underline" style="color: var(--color-content-muted);">{site.phone}</a>
+          </p>
+          <p>
+            <a href={`mailto:${site.email}`} class="text-sm hover:underline" style="color: var(--color-content-muted);">{site.email}</a>
+          </p>
+        </address>
+        <a
+          href="/contact"
+          class="inline-block mt-6 text-sm font-semibold px-5 py-2.5 rounded border transition-colors"
+          style="border-color: var(--color-brand-accent); color: var(--color-brand-accent);"
+        >
+          Get a Free Estimate
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style="border-color: var(--color-border);">
+      <p class="text-xs" style="color: var(--color-content-muted);">
+        &copy; {year} Beacon Rain Control. All rights reserved.
+      </p>
+      <p class="text-xs" style="color: var(--color-content-muted);">
+        Joshua, TX 76058 &mdash; Licensed &amp; Insured
+      </p>
+    </div>
+  </div>
+</footer>

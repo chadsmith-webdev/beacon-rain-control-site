@@ -1,0 +1,49 @@
+{
+  "name": "Beacon Rain Control",
+  "tagline": "Seamless Gutters Done Right — Built to Last",
+  "phone": "(817) 681-6041",
+  "phoneLink": "tel:+18176816041",
+  "email": "estimates@beacon-gutter.com",
+  "address": {
+    "street": "505 N Main St",
+    "city": "Joshua",
+    "state": "TX",
+    "zip": "76058"
+  },
+  "hours": "Mon–Sat 8 AM–6 PM",
+  "rating": "4.8",
+  "reviewCount": "28",
+  "warranty": "5-year",
+  "siteUrl": "https://beaconraincontrol.com",
+  "serviceAreas": [
+    "Joshua", "Burleson", "Crowley", "Cleburne", "Mansfield",
+    "Alvarado", "Godley", "Keene", "Hillsboro",
+    "Johnson County", "Tarrant County"
+  ],
+  "services": [
+    {
+      "name": "Seamless Gutter Installation",
+      "slug": "seamless-gutter-installation",
+      "description": "Custom-fitted aluminum gutters cut and formed on-site — no seams means fewer leaks, longer life.",
+      "icon": "gutter"
+    },
+    {
+      "name": "Gutter Repair",
+      "slug": "gutter-repair",
+      "description": "Sagging, pulling, or leaking gutters repaired fast so water gets where it's supposed to go.",
+      "icon": "wrench"
+    },
+    {
+      "name": "Gutter Guards & Leaf Guards",
+      "slug": "gutter-guards",
+      "description": "Keep debris out and water flowing. The right guard for your roof and tree coverage.",
+      "icon": "shield"
+    },
+    {
+      "name": "Downspout Installation",
+      "slug": "downspout-installation",
+      "description": "Properly placed downspouts that move water away from your foundation — where it belongs.",
+      "icon": "arrow-down"
+    }
+  ]
+}
