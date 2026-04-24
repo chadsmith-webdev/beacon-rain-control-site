@@ -14,7 +14,8 @@ interface Props {
 const { title, description, canonical, ogImage } = Astro.props;
 const siteUrl = 'https://beaconraincontrol.com';
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
-const ogImageUrl = ogImage ?? `${siteUrl}/og-image.jpg`;
+// og-image.jpg should be added to /public before launch — 1200×630px recommended
+const ogImageUrl = ogImage ?? (import.meta.env.PROD ? `${siteUrl}/og-image.jpg` : undefined);
 ---
 
 <!doctype html>
@@ -35,14 +36,14 @@ const ogImageUrl = ogImage ?? `${siteUrl}/og-image.jpg`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:image" content={ogImageUrl} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
     <meta property="og:site_name" content="Beacon Rain Control" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageUrl} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
   </head>
   <body class="min-h-screen flex flex-col">
     <a
