@@ -35,6 +35,29 @@ const schema = {
     reviewCount: site.reviewCount,
   },
   openingHours: 'Mo-Sa 08:00-18:00',
+  image: [
+    {
+      '@type': 'ImageObject',
+      contentUrl: site.siteUrl + '/src/assets/images/residential-seamless-gutter-installation1.jpg',
+      url: site.siteUrl + '/src/assets/images/residential-seamless-gutter-installation1.jpg',
+      description: 'Seamless gutter installation on a two-story brick home in Joshua, TX (March 2026)',
+      caption: 'Joshua, TX — Seamless gutter install, March 2026',
+    },
+    {
+      '@type': 'ImageObject',
+      contentUrl: site.siteUrl + '/src/assets/images/brc-seamlessgutter_installation.jpg',
+      url: site.siteUrl + '/src/assets/images/brc-seamlessgutter_installation.jpg',
+      description: 'Beacon Rain Control technician installing seamless gutters on a stone home in Burleson, TX (February 2026)',
+      caption: 'Burleson, TX — Stone home, Feb 2026',
+    },
+    {
+      '@type': 'ImageObject',
+      contentUrl: site.siteUrl + '/src/assets/images/seemlass-gutter-installation-2.jpg',
+      url: site.siteUrl + '/src/assets/images/seemlass-gutter-installation-2.jpg',
+      description: 'Gutter installation in progress on a brick ranch home in Cleburne, TX (January 2026)',
+      caption: 'Cleburne, TX — Brick ranch, Jan 2026',
+    },
+  ],
 };
 
 const testimonials = [
@@ -352,12 +375,25 @@ const testimonials = [
         </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {/* Gallery images with enhanced alt text and captions for local SEO/trust */}
         {[
-          { src: galleryImg1, alt: "Seamless gutter installation on a two-story brick home" },
-          { src: galleryImg2, alt: "Beacon Rain Control technician installing gutters on a stone home" },
-          { src: galleryImg3, alt: "Gutter installation in progress on a brick ranch home" },
-        ].map(({ src, alt }) => (
-          <div class="group rounded-xl overflow-hidden" style="border: 1px solid var(--color-border); aspect-ratio: 4/3;">
+          {
+            src: galleryImg1,
+            alt: "Seamless gutter installation on a two-story brick home in Joshua, TX (March 2026)",
+            caption: "Joshua, TX — Seamless gutter install, March 2026"
+          },
+          {
+            src: galleryImg2,
+            alt: "Beacon Rain Control technician installing seamless gutters on a stone home in Burleson, TX (February 2026)",
+            caption: "Burleson, TX — Stone home, Feb 2026"
+          },
+          {
+            src: galleryImg3,
+            alt: "Gutter installation in progress on a brick ranch home in Cleburne, TX (January 2026)",
+            caption: "Cleburne, TX — Brick ranch, Jan 2026"
+          },
+        ].map(({ src, alt, caption }) => (
+          <figure class="group rounded-xl overflow-hidden flex flex-col" style="border: 1px solid var(--color-border); aspect-ratio: 4/3;">
             <Image
               src={src}
               alt={alt}
@@ -365,7 +401,10 @@ const testimonials = [
               height={450}
               class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
-          </div>
+            <figcaption class="text-xs font-medium px-3 py-2 bg-surface-base/80 text-content-primary border-t border-border-strong" style="backdrop-filter: blur(2px);">
+              {caption}
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
