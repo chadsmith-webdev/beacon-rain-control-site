@@ -110,12 +110,10 @@ const testimonials = [
       <div class="relative w-full">
         <ul class="marquee-track flex items-center gap-8 min-w-max" role="list" aria-hidden="true">
           <li class="inline-flex items-center gap-2 px-2">
-            <!-- Star icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-            </svg>
-            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Top-rated in Joshua, TX</span>
-            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">{site.rating} stars on Google &bull; {site.reviewCount} reviews</span>
+            <!-- Google reviews icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" class="w-4 h-4 shrink-0" aria-hidden="true"><g><circle cx="24" cy="24" r="24" fill="#fff"/><path d="M24 9a15 15 0 1 0 0 30 15 15 0 0 0 0-30zm0 27.5A12.5 12.5 0 1 1 24 11.5a12.5 12.5 0 0 1 0 25z" fill="#4285F4"/><path d="M24 13.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21zm0 19A8.5 8.5 0 1 1 24 15.5a8.5 8.5 0 0 1 0 17z" fill="#34A853"/></g></svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">4.8 stars on Google</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">28 verified reviews</span>
           </li>
           <li class="inline-flex items-center gap-2 px-2">
             <!-- Home icon -->
@@ -123,14 +121,14 @@ const testimonials = [
               <path fill-rule="evenodd" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v5a2 2 0 002 2h2a1 1 0 001-1v-3h2v3a1 1 0 001 1h2a2 2 0 002-2v-5h1a1 1 0 00.707-1.707l-7-7z" clip-rule="evenodd" />
             </svg>
             <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Locally owned &amp; operated</span>
-            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Serving Johnson County homeowners</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Serving Joshua, Burleson, Cleburne, Johnson County</span>
           </li>
           <li class="inline-flex items-center gap-2 px-2">
             <!-- Shield/award icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 2c-.28 0-.56.06-.82.18l-5 2.22A2 2 0 003 6.22V10c0 5.25 6.13 7.72 6.4 7.82a1 1 0 00.8 0C10.87 17.72 17 15.25 17 10V6.22a2 2 0 00-1.18-1.82l-5-2.22A1.98 1.98 0 0010 2zm0 2.06l5 2.22V10c0 4.13-4.13 6.13-5 6.54-.87-.41-5-2.41-5-6.54V6.28l5-2.22z" clip-rule="evenodd" />
             </svg>
-            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">{site.warranty} warranty</span>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">5-year written warranty</span>
             <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">On every installation</span>
           </li>
           <li class="inline-flex items-center gap-2 px-2">
@@ -146,7 +144,7 @@ const testimonials = [
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
               <path fill-rule="evenodd" d="M10 2a2 2 0 00-2 2v1.586l-2.293 2.293a1 1 0 000 1.414l1.293 1.293a1 1 0 001.414 0L10 8.414l1.586 1.586a1 1 0 001.414 0l1.293-1.293a1 1 0 000-1.414L12 5.586V4a2 2 0 00-2-2zm-1 7.414l-1.293-1.293a3 3 0 010-4.242l1.293-1.293a3 3 0 014.242 0l1.293 1.293a3 3 0 010 4.242L11 9.414a1 1 0 01-1.414 0z" clip-rule="evenodd" />
             </svg>
-            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Licensed &amp; insured</span>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Fully insured, TX-licensed</span>
             <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Peace of mind, every job</span>
           </li>
           <!-- Duplicate for infinite scroll -->
