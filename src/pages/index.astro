@@ -115,11 +115,32 @@ const testimonials = [
           <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm" aria-label="Request a free gutter estimate in Joshua, TX">
             Get a Free Estimate in Joshua, TX
           </a>
-          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label="Call Beacon Rain Control now for a same-day quote: {site.phone}">
+          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label={`Call Beacon Rain Control: ${site.phone}`}>
             Call Now for Same-Day Quote
           </a>
         </div>
-        <p class="text-xs mt-4" style="color: rgba(242,241,239,0.55);">Locally owned • Free estimates • {site.warranty} warranty</p>
+        <!-- SMS CTA + warranty badge row -->
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mt-4">
+          <a
+            href={`sms:+1${site.phone.replace(/\D/g,'')}&body=Hi%2C%20I%20need%20a%20free%20gutter%20estimate.%20Can%20you%20reach%20out%20when%20you%20get%20a%20chance%3F`}
+            class="inline-flex items-center gap-1.5 text-sm font-semibold"
+            style="color: var(--color-brand-accent);"
+            aria-label="Send a text message to Beacon Rain Control for a free estimate"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
+              <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6l-4 4V5z" clip-rule="evenodd" />
+            </svg>
+            Text for a Quote
+          </a>
+          <span aria-hidden="true" class="text-xs" style="color: rgba(242,241,239,0.25);">|</span>
+          <div class="inline-flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-xs font-semibold" style="color: rgba(242,241,239,0.80);">5-Year Written Warranty</span>
+            <span class="text-xs" style="color: rgba(242,241,239,0.45);">on every installation</span>
+          </div>
+        </div>
       </div>
     </div>
 
