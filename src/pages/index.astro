@@ -80,23 +80,23 @@ const testimonials = [
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center" style="min-height: clamp(560px, 70vh, 760px);">
       <div class="max-w-xl py-20">
         <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
-          Joshua, TX &mdash; Johnson &amp; Tarrant County
+          Seamless Gutter Installation • Joshua, TX & Johnson County
         </p>
         <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: #ffffff;">
-          Seamless Gutters That Protect Your Home for Years
+          Stop Water Damage Before It Starts—Expert Gutter Installation in Joshua, TX
         </h1>
         <p class="text-lg leading-relaxed mb-8" style="color: rgba(242,241,239,0.85);">
-          When gutters fail, water finds the foundation. Beacon Rain Control installs custom-fitted seamless aluminum gutters — cut on-site, built to your roofline, backed by a 5-year warranty.
+          Leaking or overflowing gutters can destroy your foundation, landscaping, and fascia. Beacon Rain Control installs seamless aluminum gutters—custom cut on-site for your home, built to handle Texas storms, and backed by a 5-year warranty. Serving Joshua, Burleson, Cleburne, and all of Johnson County.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
-            Get a Free Estimate
+            Get a Free Gutter Estimate
           </a>
-          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label="Call Beacon Rain Control at {site.phone}">
             Call {site.phone}
           </a>
         </div>
-        <p class="text-xs mt-4" style="color: rgba(242,241,239,0.55);">No contracts &bull; Free estimates &bull; {site.warranty} warranty</p>
+        <p class="text-xs mt-4" style="color: rgba(242,241,239,0.55);">Locally owned • Free estimates • {site.warranty} warranty</p>
       </div>
     </div>
 
@@ -104,33 +104,108 @@ const testimonials = [
     <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to bottom, transparent, var(--color-surface-bg));" aria-hidden="true"></div>
   </section>
 
-  <!-- Trust bar -->
+  <!-- Trust bar as marquee strip -->
   <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-      <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-6 md:gap-12">
-        <div class="flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
-          </svg>
-          <div>
-            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">{site.rating}-star rated</span>
-            <span class="text-xs block" style="color: var(--color-content-muted);">{site.reviewCount} Google reviews</span>
-          </div>
-        </div>
-        <div>
-          <p class="text-sm font-semibold" style="color: var(--color-content-primary);">{site.warranty} warranty</p>
-          <p class="text-xs" style="color: var(--color-content-muted);">on all work</p>
-        </div>
-        <div>
-          <p class="text-sm font-semibold" style="color: var(--color-content-primary);">Free estimates</p>
-          <p class="text-xs" style="color: var(--color-content-muted);">Same-day quotes available</p>
-        </div>
-        <div>
-          <p class="text-sm font-semibold" style="color: var(--color-content-primary);">Licensed &amp; insured</p>
-          <p class="text-xs" style="color: var(--color-content-muted);">Joshua, TX</p>
-        </div>
+    <div class="overflow-x-hidden py-3" aria-label="Trust signals">
+      <div class="relative w-full">
+        <ul class="marquee-track flex items-center gap-8 min-w-max" role="list" aria-hidden="true">
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Star icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Top-rated in Joshua, TX</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">{site.rating} stars on Google &bull; {site.reviewCount} reviews</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Home icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v5a2 2 0 002 2h2a1 1 0 001-1v-3h2v3a1 1 0 001 1h2a2 2 0 002-2v-5h1a1 1 0 00.707-1.707l-7-7z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Locally owned &amp; operated</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Serving Johnson County homeowners</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Shield/award icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 2c-.28 0-.56.06-.82.18l-5 2.22A2 2 0 003 6.22V10c0 5.25 6.13 7.72 6.4 7.82a1 1 0 00.8 0C10.87 17.72 17 15.25 17 10V6.22a2 2 0 00-1.18-1.82l-5-2.22A1.98 1.98 0 0010 2zm0 2.06l5 2.22V10c0 4.13-4.13 6.13-5 6.54-.87-.41-5-2.41-5-6.54V6.28l5-2.22z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">{site.warranty} warranty</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">On every installation</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Phone/bolt icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M2.003 5.884l2-3.5A1 1 0 015 2h10a1 1 0 01.997 1.116l-2 14A1 1 0 0113 18H7a1 1 0 01-.997-1.116l2-14A1 1 0 017 2h6a1 1 0 01.997 1.116l-2 14A1 1 0 0113 18H7a1 1 0 01-.997-1.116l2-14A1 1 0 017 2z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Free same-day estimates</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Call or request online</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Check badge icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 2a2 2 0 00-2 2v1.586l-2.293 2.293a1 1 0 000 1.414l1.293 1.293a1 1 0 001.414 0L10 8.414l1.586 1.586a1 1 0 001.414 0l1.293-1.293a1 1 0 000-1.414L12 5.586V4a2 2 0 00-2-2zm-1 7.414l-1.293-1.293a3 3 0 010-4.242l1.293-1.293a3 3 0 014.242 0l1.293 1.293a3 3 0 010 4.242L11 9.414a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Licensed &amp; insured</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Peace of mind, every job</span>
+          </li>
+          <!-- Duplicate for infinite scroll -->
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Star icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Top-rated in Joshua, TX</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">{site.rating} stars on Google &bull; {site.reviewCount} reviews</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Home icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v5a2 2 0 002 2h2a1 1 0 001-1v-3h2v3a1 1 0 001 1h2a2 2 0 002-2v-5h1a1 1 0 00.707-1.707l-7-7z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Locally owned &amp; operated</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Serving Johnson County homeowners</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Shield/award icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 2c-.28 0-.56.06-.82.18l-5 2.22A2 2 0 003 6.22V10c0 5.25 6.13 7.72 6.4 7.82a1 1 0 00.8 0C10.87 17.72 17 15.25 17 10V6.22a2 2 0 00-1.18-1.82l-5-2.22A1.98 1.98 0 0010 2zm0 2.06l5 2.22V10c0 4.13-4.13 6.13-5 6.54-.87-.41-5-2.41-5-6.54V6.28l5-2.22z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">{site.warranty} warranty</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">On every installation</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Phone/bolt icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M2.003 5.884l2-3.5A1 1 0 015 2h10a1 1 0 01.997 1.116l-2 14A1 1 0 0113 18H7a1 1 0 01-.997-1.116l2-14A1 1 0 017 2h6a1 1 0 01.997 1.116l-2 14A1 1 0 0113 18H7a1 1 0 01-.997-1.116l2-14A1 1 0 017 2z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Free same-day estimates</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Call or request online</span>
+          </li>
+          <li class="inline-flex items-center gap-2 px-2">
+            <!-- Check badge icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 2a2 2 0 00-2 2v1.586l-2.293 2.293a1 1 0 000 1.414l1.293 1.293a1 1 0 001.414 0L10 8.414l1.586 1.586a1 1 0 001.414 0l1.293-1.293a1 1 0 000-1.414L12 5.586V4a2 2 0 00-2-2zm-1 7.414l-1.293-1.293a3 3 0 010-4.242l1.293-1.293a3 3 0 014.242 0l1.293 1.293a3 3 0 010 4.242L11 9.414a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">Licensed &amp; insured</span>
+            <span class="text-xs hidden sm:inline" style="color: var(--color-content-muted);">Peace of mind, every job</span>
+          </li>
+        </ul>
       </div>
     </div>
+    <style>
+      @media (min-width: 640px) {
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee-infinite 32s linear infinite;
+        }
+        @keyframes marquee-infinite {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      }
+    </style>
   </section>
 
   <!-- Services -->
