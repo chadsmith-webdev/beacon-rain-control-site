@@ -89,11 +89,11 @@ const testimonials = [
           Leaking or overflowing gutters can destroy your foundation, landscaping, and fascia. Beacon Rain Control installs seamless aluminum gutters—custom cut on-site for your home, built to handle Texas storms, and backed by a 5-year warranty. Serving Joshua, Burleson, Cleburne, and all of Johnson County.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
-            Get a Free Gutter Estimate
+          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm" aria-label="Request a free gutter estimate in Joshua, TX">
+            Get a Free Estimate in Joshua, TX
           </a>
-          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label="Call Beacon Rain Control at {site.phone}">
-            Call {site.phone}
+          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label="Call Beacon Rain Control now for a same-day quote: {site.phone}">
+            Call Now for Same-Day Quote
           </a>
         </div>
         <p class="text-xs mt-4" style="color: rgba(242,241,239,0.55);">Locally owned • Free estimates • {site.warranty} warranty</p>
@@ -222,8 +222,8 @@ const testimonials = [
           <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
             <h3 class="font-semibold text-base" style="color: var(--color-content-primary);">{service.name}</h3>
             <p class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">{service.description}</p>
-            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-accent);">
-              Learn more &rarr;
+            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-accent);" aria-label={`Learn more about ${service.name} in Joshua, TX`}>
+              Learn More
             </a>
           </article>
         ))}

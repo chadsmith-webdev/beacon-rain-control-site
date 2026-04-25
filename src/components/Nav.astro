@@ -34,11 +34,11 @@ const navLinks = [
 
       <!-- Desktop CTA -->
       <div class="hidden md:flex items-center gap-4">
-        <a href={site.phoneLink} class="nav-link text-sm font-semibold">
+        <a href={site.phoneLink} class="nav-link text-sm font-semibold" aria-label={`Call Beacon Rain Control in Joshua, TX: ${site.phone}`}>
           {site.phone}
         </a>
-        <a href="/contact" class="nav-cta text-sm font-semibold px-4 py-2 rounded border">
-          Get a Free Estimate
+        <a href="/contact" class="nav-cta text-sm font-semibold px-4 py-2 rounded border" aria-label="Request a free gutter estimate in Joshua, TX">
+          Get a Free Estimate in Joshua, TX
         </a>
       </div>
 
@@ -79,11 +79,11 @@ const navLinks = [
         </a>
       ))}
       <div class="border-t mt-2 pt-4" style="border-color: var(--color-border);">
-        <a href={site.phoneLink} class="text-sm font-semibold py-2 block" style="color: var(--color-brand-accent);">
+        <a href={site.phoneLink} class="text-sm font-semibold py-2 block" style="color: var(--color-brand-accent);" aria-label={`Call Beacon Rain Control in Joshua, TX: ${site.phone}`}>
           {site.phone}
         </a>
-        <a href="/contact" class="nav-cta mt-3 text-sm font-semibold px-4 py-3 rounded border text-center block">
-          Get a Free Estimate
+        <a href="/contact" class="nav-cta mt-3 text-sm font-semibold px-4 py-3 rounded border text-center block" aria-label="Request a free gutter estimate in Joshua, TX">
+          Get a Free Estimate in Joshua, TX
         </a>
       </div>
     </nav>
