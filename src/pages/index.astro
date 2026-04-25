@@ -143,26 +143,34 @@ const testimonials = [
 
     <!-- Content -->
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center" style="min-height: clamp(560px, 70vh, 760px);">
-      <div class="max-w-xl py-20">
+      <div class="max-w-3xl py-20">
         <p class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">
           Seamless Gutter Installation • Joshua, TX & Johnson County
         </p>
         <h1 class="font-bold leading-tight mb-6" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.02em; color: #ffffff;">
           Stop Water Damage Before It Starts—Expert Gutter Installation in Joshua, TX
         </h1>
-        <p class="text-lg leading-relaxed mb-8" style="color: rgba(242,241,239,0.85);">
+        <p class="text-lg leading-relaxed mb-8 max-w-xl" style="color: rgba(242,241,239,0.85);">
           Leaking or overflowing gutters can destroy your foundation, landscaping, and fascia. Beacon Rain Control installs seamless aluminum gutters—custom cut on-site for your home, built to handle Texas storms, and backed by a 5-year warranty. Serving Joshua, Burleson, Cleburne, and all of Johnson County.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm" aria-label="Request a free gutter estimate in Joshua, TX">
-            Get a Free Estimate in Joshua, TX
-          </a>
-          <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border" aria-label={`Call Beacon Rain Control: ${site.phone}`}>
-            Call Now for Same-Day Quote
-          </a>
-        </div>
+        
+        <!-- Inline Quick Quote Form -->
+        <form action="/contact" method="POST" class="mt-8 flex flex-col md:flex-row gap-3 p-3 rounded-xl border shadow-2xl" style="background-color: rgba(14, 18, 32, 0.75); backdrop-filter: blur(8px); border-color: var(--color-border-strong);">
+          <input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
+          <input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
+          <select name="service" required aria-label="Service Needed" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border appearance-none" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
+            <option value="" disabled selected>Service Needed</option>
+            <option value="New Gutters">New Gutters</option>
+            <option value="Gutter Guards">Gutter Guards</option>
+            <option value="Repairs">Repairs</option>
+          </select>
+          <button type="submit" class="cta-primary w-full md:w-auto shrink-0 px-8 py-3 rounded-md font-semibold text-sm cursor-pointer shadow-md">
+            Get Quote
+          </button>
+        </form>
+
         <!-- SMS CTA + warranty badge row -->
-        <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mt-4">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-3 mt-6">
           <a
             href={`sms:+1${site.phone.replace(/\D/g,'')}&body=Hi%2C%20I%20need%20a%20free%20gutter%20estimate.%20Can%20you%20reach%20out%20when%20you%20get%20a%20chance%3F`}
             class="inline-flex items-center gap-1.5 text-sm font-semibold"
