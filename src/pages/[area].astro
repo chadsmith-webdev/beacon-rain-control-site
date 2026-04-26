@@ -1,0 +1,236 @@
+---
+// Dynamic service area landing pages — one page per city in serviceAreas.json
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+import serviceAreas from '../data/serviceAreas.json';
+
+export function getStaticPaths() {
+  return serviceAreas.map((area) => ({
+    params: { area: area.slug },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+
+const title = `Gutter Installation in ${area.city}, TX | Beacon Rain Control`;
+const description = `Beacon Rain Control installs seamless aluminum gutters in ${area.city}, TX. Free estimates, 5-year written warranty, on-site fabrication. Call (817) 681-6041.`;
+const canonical = `${site.siteUrl}/${area.slug}`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  name: site.name,
+  telephone: site.phone,
+  email: site.email,
+  url: site.siteUrl,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.zip,
+    addressCountry: 'US',
+  },
+  areaServed: [
+    { '@type': 'City', name: area.city, containedInPlace: { '@type': 'State', name: 'Texas' } },
+    { '@type': 'AdministrativeArea', name: area.county },
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: site.rating,
+    reviewCount: site.reviewCount,
+  },
+};
+
+const testimonials = [
+  {
+    quote: "Mr. Neff was courteous, responsive, and extremely knowledgeable when I reached out for a quote. His team did exceptional work and left the area clean when the job was complete. They provide a 5-year warranty on their work. Absolutely a great company — I will use Beacon Rain Control exclusively for all related work going forward.",
+    author: "Beth James",
+  },
+  {
+    quote: "Tracy was professional from beginning to end. They did a great job, showed up on time and cleaned up when they were done. I highly recommend Beacon Rain Control!",
+    author: "Cecilia",
+  },
+  {
+    quote: "Came out and got me a quote the same day I called. Professional and efficient, did a great job.",
+    author: "Jake Bransford",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- Page header -->
+  <section class="py-14 md:py-20" style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
+        Serving {area.county}
+      </p>
+      <h1 class="font-bold leading-tight mb-4 max-w-2xl" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Seamless Gutter Installation in {area.city}, TX
+      </h1>
+      <p class="text-base leading-relaxed mb-8 max-w-2xl" style="color: var(--color-content-muted);">
+        {area.intro}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+          Get a Free Estimate in {area.city}
+        </a>
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+          Call {site.phone}
+        </a>
+        <a
+          href={`sms:+1${site.phone.replace(/\D/g,'')}&body=Hi%2C%20I%20need%20a%20free%20gutter%20estimate%20in%20${encodeURIComponent(area.city)}%2C%20TX.%20Can%20you%20reach%20out%3F`}
+          class="inline-flex items-center justify-center gap-1.5 px-7 py-3.5 rounded font-semibold text-sm border"
+          style="border-color: var(--color-border-strong); color: var(--color-content-muted);"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
+            <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6l-4 4V5z" clip-rule="evenodd" />
+          </svg>
+          Text for a Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust signals -->
+  <section class="py-8" style="border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-x-8 gap-y-3">
+        {[
+          { icon: 'M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z', label: `${site.rating} stars on Google`, color: '#F59E0B' },
+          { icon: 'M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z', label: '5-year written warranty', color: 'var(--color-brand-accent)', rule: 'evenodd' },
+          { icon: 'M10.707 2.293a1 1 0 00-1.414 0l-7 7A1 1 0 003 11h1v5a2 2 0 002 2h2a1 1 0 001-1v-3h2v3a1 1 0 001 1h2a2 2 0 002-2v-5h1a1 1 0 00.707-1.707l-7-7z', label: 'Locally owned in Joshua, TX', color: 'var(--color-brand-accent)', rule: 'evenodd' },
+          { icon: 'M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z', label: 'Free same-day estimates', color: 'var(--color-brand-accent)' },
+        ].map((item) => (
+          <div class="inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style={`color: ${item.color};`} aria-hidden="true">
+              <path fill-rule={item.rule ?? undefined} d={item.icon} clip-rule={item.rule ?? undefined} />
+            </svg>
+            <span class="text-sm font-semibold" style="color: var(--color-content-primary);">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What We Do in {area.city}</p>
+        <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          Gutter services for {area.city} homeowners
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {site.services.map((service) => (
+          <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
+            <h3 class="font-semibold text-base" style="color: var(--color-content-primary);">{service.name}</h3>
+            <p class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">{service.description}</p>
+            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-accent);" aria-label={`Learn more about ${service.name} in ${area.city}, TX`}>
+              Learn More
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Local detail + why Beacon -->
+  <section class="py-16 md:py-20" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Serving {area.city}</p>
+          <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+            Why {area.city} homeowners call Beacon
+          </h2>
+          <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+            {area.localDetail}
+          </p>
+          <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+            Every gutter we install is cut on-site from a continuous run of aluminum — no pre-made sections, no seams along the straight runs. The job comes with a {site.warranty} written warranty, and we clean up before we leave.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 gap-4">
+          {[
+            { label: 'Same-day quotes', detail: 'Most estimates are turned around the same day you call.' },
+            { label: 'On time, every time', detail: 'Customers consistently note we show up when we say we will.' },
+            { label: 'Clean jobsite', detail: 'We haul everything out — no debris left behind.' },
+            { label: `${site.warranty} warranty`, detail: 'All gutter installations are backed by a written warranty.' },
+          ].map((item) => (
+            <div class="rounded-xl p-5 border flex gap-4 items-start" style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);">
+              <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0" style="background-color: var(--color-brand-tint);" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3 h-3" style="color: var(--color-brand-accent);">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm font-semibold mb-0.5" style="color: var(--color-content-primary);">{item.label}</p>
+                <p class="text-sm" style="color: var(--color-content-muted);">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What Customers Say</p>
+        <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+          The work speaks for itself
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <figure class="rounded-xl p-6 border flex flex-col gap-4" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
+            <div class="flex gap-0.5" aria-label="5 out of 5 stars">
+              {Array(5).fill(null).map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4" style="color: #F59E0B;" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <figcaption class="text-xs font-semibold" style="color: var(--color-content-primary);">
+              &mdash; {t.author}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="text-xs text-center mt-6" style="color: var(--color-content-muted);">
+        From Google Business Profile &bull; {site.rating} stars &bull; {site.reviewCount} reviews
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-16 md:py-20" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Ready for a free estimate in {area.city}?
+      </h2>
+      <p class="text-base mb-8 max-w-lg mx-auto" style="color: var(--color-content-muted);">
+        No contracts. {site.warranty} written warranty. We'll come out, look at your roofline, and give you a straight number.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">
+          Get a Free Estimate
+        </a>
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-8 py-4 rounded font-semibold border">
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+</BaseLayout>
