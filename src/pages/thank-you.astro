@@ -23,17 +23,39 @@ const description = 'Thanks for reaching out. Beacon Rain Control will get back 
         Request received
       </h1>
       <p class="text-lg mb-8" style="color: var(--color-content-muted);">
-        Thanks for reaching out. We'll be in touch the same day to set up your free estimate.
+        Thanks for reaching out. We've received your information and will be in touch today.
       </p>
-      <p class="text-base mb-8" style="color: var(--color-content-muted);">
-        Questions in the meantime? Call us at <a href={site.phoneLink} class="font-semibold hover:underline" style="color: var(--color-brand-accent);">{site.phone}</a>.
-      </p>
-      <a
-        href="/"
-        class="cta-secondary inline-flex items-center justify-center px-6 py-3 rounded font-semibold text-sm border"
-      >
-        &larr; Back to home
-      </a>
+      
+      <!-- What happens next -->
+      <div class="p-6 md:p-8 rounded-xl border mb-8 text-left" style="background-color: var(--color-surface-base); border-color: var(--color-border-strong);">
+        <h2 class="text-sm font-semibold uppercase tracking-widest mb-6" style="color: var(--color-brand-accent);">What happens next?</h2>
+        <ol class="flex flex-col gap-5">
+          <li class="flex gap-4 text-sm leading-relaxed" style="color: var(--color-content-muted);">
+            <span class="font-mono font-bold" style="color: var(--color-content-primary);" aria-hidden="true">01</span>
+            <span><strong>We'll call or text you</strong> at the number provided to schedule a time to come out and look at your home.</span>
+          </li>
+          <li class="flex gap-4 text-sm leading-relaxed" style="color: var(--color-content-muted);">
+            <span class="font-mono font-bold" style="color: var(--color-content-primary);" aria-hidden="true">02</span>
+            <span><strong>Tracy measures your roofline</strong> and gives you a straight, exact price. No pressure, no obligations.</span>
+          </li>
+          <li class="flex gap-4 text-sm leading-relaxed" style="color: var(--color-content-muted);">
+            <span class="font-mono font-bold" style="color: var(--color-content-primary);" aria-hidden="true">03</span>
+            <span><strong>If you approve</strong>, we typically schedule your custom installation within the week!</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="cta-secondary inline-flex items-center justify-center px-6 py-3.5 rounded font-semibold text-sm border">
+          &larr; Back to home
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Conversion Tracking Placeholder -->
+  <script is:inline>
+    // If you add Google Ads, Analytics, or Meta Pixel, fire your conversion events here.
+    // Example: window.dataLayer = window.dataLayer || []; window.dataLayer.push({'event': 'lead_submitted'});
+  </script>
 </BaseLayout>
