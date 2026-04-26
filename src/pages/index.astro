@@ -68,11 +68,13 @@ const faqItems = [
   },
   {
     q: 'What\'s the difference between seamless and sectional gutters?',
-    a: 'Sectional gutters come in pre-cut pieces joined together on the house. Every joint is a potential leak point — and Texas heat and temperature swings open those joints up over time. Seamless gutters are cut from a single continuous run of aluminum, custom-sized to your home, with no joints along the straight runs. The only connections are at the corners and downspouts, which are built to handle them. Fewer seams means fewer leaks. <a href="/seamless-vs-sectional-gutters" style="color: var(--color-brand-accent);">Read the full breakdown →</a>',
+    a: 'Sectional gutters come in pre-cut pieces joined together on the house. Every joint is a potential leak point — and Texas heat and temperature swings open those joints up over time. Seamless gutters are cut from a single continuous run of aluminum, custom-sized to your home, with no joints along the straight runs. The only connections are at the corners and downspouts, which are built to handle them. Fewer seams means fewer leaks.',
+    link: { href: '/seamless-vs-sectional-gutters', text: 'Read the full breakdown →' },
   },
   {
     q: 'Do you install 5-inch or 6-inch gutters?',
-    a: 'Both — and the right size depends on your roof. A 5-inch K-style gutter handles most standard residential rooflines. If you have a steeper pitch, a large roof area, or you\'ve had overflow problems in heavy Texas rain, 6-inch gutters move significantly more water. I\'ll look at your roof pitch and square footage and tell you which size makes sense — not just sell you the bigger one. <a href="/5-inch-vs-6-inch-gutters" style="color: var(--color-brand-accent);">See how the decision gets made →</a>',
+    a: 'Both — and the right size depends on your roof. A 5-inch K-style gutter handles most standard residential rooflines. If you have a steeper pitch, a large roof area, or you\'ve had overflow problems in heavy Texas rain, 6-inch gutters move significantly more water. I\'ll look at your roof pitch and square footage and tell you which size makes sense — not just sell you the bigger one.',
+    link: { href: '/5-inch-vs-6-inch-gutters', text: 'See how the decision gets made →' },
   },
   {
     q: 'How long does gutter installation take?',
@@ -585,7 +587,14 @@ const testimonials = [
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
               </svg>
             </summary>
-            <p class="pb-5 text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.a}</p>
+            <div class="pb-5">
+              <p class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.a}</p>
+              {item.link && (
+                <a href={item.link.href} class="inline-block mt-2 text-sm font-semibold hover:underline" style="color: var(--color-brand-accent);">
+                  {item.link.text}
+                </a>
+              )}
+            </div>
           </details>
         ))}
       </div>
