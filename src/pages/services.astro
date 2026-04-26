@@ -2,6 +2,8 @@
 // Services page — full breakdown of each gutter service
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
+import { Image } from 'astro:assets';
+import servicesHeroImg from '../assets/images/residential-seamless-gutter-installation1.jpg';
 
 const title = 'Gutter Services in Joshua & Johnson County, TX | Beacon Rain Control';
 const description = 'Seamless gutter installation, gutter repair, gutter guards, and downspout installation throughout Johnson County and Tarrant County, TX. Free estimates — call (817) 681-6041.';
@@ -60,8 +62,26 @@ const services = [
 
 <BaseLayout title={title} description={description}>
   <!-- Page header -->
-  <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <section class="relative overflow-hidden" style="border-bottom: 1px solid var(--color-border);">
+    <!-- Background image -->
+    <Image
+      src={servicesHeroImg}
+      alt="Seamless gutter installation"
+      width={1400}
+      height={600}
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      aria-hidden="true"
+    />
+    
+    <!-- Gradient overlay for text contrast -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(100deg, rgba(14, 18, 32, 0.95) 0%, rgba(14, 18, 32, 0.85) 45%, rgba(14, 18, 32, 0.50) 100%);"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
       <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What We Do</p>
       <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         Gutter Services
