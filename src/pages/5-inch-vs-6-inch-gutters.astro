@@ -1,0 +1,171 @@
+---
+// Educational article: 5-inch vs 6-inch gutters
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = '5-Inch vs. 6-Inch Gutters: Which Size Does Your Home Need? | Beacon Rain Control';
+const description = 'Not sure whether your home needs 5-inch or 6-inch gutters? Here\'s how to think through gutter sizing for homes in Johnson County, TX — from someone who installs them every day.';
+const canonical = 'https://beaconraincontrol.com/5-inch-vs-6-inch-gutters';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '5-Inch vs. 6-Inch Gutters: How to Choose the Right Size for Your Home',
+  description,
+  author: {
+    '@type': 'Person',
+    name: 'Tracy Neff',
+    jobTitle: 'Owner',
+    worksFor: { '@type': 'Organization', name: 'Beacon Rain Control' },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Beacon Rain Control',
+    url: 'https://beaconraincontrol.com',
+  },
+  datePublished: '2026-04-25',
+  dateModified: '2026-04-25',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- Article header -->
+  <section class="py-14 md:py-20" style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/" class="inline-flex items-center gap-1.5 text-xs font-semibold mb-6 hover:underline" style="color: var(--color-brand-accent);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+        </svg>
+        Beacon Rain Control
+      </a>
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Gutter Guide</p>
+      <h1 class="font-bold leading-tight mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        5-Inch vs. 6-Inch Gutters: How to Choose the Right Size for Your Home
+      </h1>
+      <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+        Gutter size is the one thing most homeowners leave entirely up to the contractor. That's usually fine — if the contractor is paying attention. But if you've had overflow problems before, or you're getting quotes from multiple people, it's worth understanding how the decision gets made.
+      </p>
+    </div>
+  </section>
+
+  <!-- Article body -->
+  <article class="py-14 md:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          What the size measurement actually means
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          K-style gutters — the most common profile in residential construction, the ones that look like crown molding from the front — are sized by their opening width. A 5-inch gutter has a 5-inch opening. A 6-inch gutter has a 6-inch opening.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          The capacity difference is bigger than the one-inch gap suggests: a 6-inch K-style gutter can handle roughly 40% more water flow than a 5-inch. The downspouts need to match — 6-inch gutters use 3×4-inch rectangular downspouts instead of the 2×3 used with 5-inch systems.
+        </p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          When 5-inch gutters are the right call
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Five-inch gutters handle most standard residential rooflines in Johnson County. If your home has a typical pitch — roughly 4/12 to 6/12 — and a roof area under about 1,500 square feet per drainage zone, 5-inch gutters are probably sufficient. No overflow history is a good sign you're in range.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          Five-inch isn't a compromise. It's the correct size for the job on a lot of homes. Upsizing everything to 6-inch as a default is a sales tactic, not an engineering decision.
+        </p>
+      </div>
+
+      <!-- Callout: 5" is right when... -->
+      <div class="rounded-xl p-6 mb-10" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border-strong);">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">5-inch is usually right when</p>
+        <ul class="space-y-2">
+          {[
+            'Standard roof pitch (4/12 to 6/12)',
+            'Roof drainage zone under ~1,500 sq ft',
+            'No history of gutters overflowing during normal rain',
+            'Single-story or typical two-story ranch home',
+          ].map((item) => (
+            <li class="flex items-start gap-2.5 text-sm" style="color: var(--color-content-muted);">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0 mt-0.5" style="color: var(--color-brand-accent);" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          When 6-inch gutters make more sense
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Some homes genuinely need the extra capacity. The situations where 6-inch is the right call:
+        </p>
+        <ul class="space-y-3 mb-4">
+          {[
+            { label: 'Steeper roof pitch (8/12 or higher)', detail: 'A steeper roof sheds water faster, so the gutters see a higher surge rate during heavy rain.' },
+            { label: 'Large roof area', detail: 'More square footage means more water concentrated at the roofline during a downpour.' },
+            { label: 'You\'ve had overflow before', detail: 'If your old gutters were overflowing before they failed, replace them with enough capacity to handle the load.' },
+            { label: 'Heavy tree coverage', detail: 'Debris restricts flow. Larger gutters have more margin before a partial blockage becomes a problem.' },
+            { label: 'Texas storm volume', detail: 'Johnson County can see 4+ inches of rain in a single storm. Your gutters need to handle the peak surge, not just the average.' },
+          ].map((item) => (
+            <li class="rounded-lg p-4" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border);">
+              <p class="text-sm font-semibold mb-1" style="color: var(--color-content-primary);">{item.label}</p>
+              <p class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.detail}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="prose-section mb-12">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          How Tracy decides on a job
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          When I come out for an estimate, I look at roof pitch, total roof area, where the existing downspouts drain, and whether there's any evidence of past overflow — staining on the fascia, erosion directly below the roofline, or soft ground near the foundation. If there's doubt, I'll recommend 6-inch. The upcharge is modest and the margin it gives you is worth it.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          What I won't do is default to 6-inch on every job because it sounds more substantial. If your roof is a good fit for 5-inch, that's what I'll spec — and I'll tell you why.
+        </p>
+      </div>
+
+      <!-- Related article link -->
+      <div class="rounded-xl p-5 mb-12 flex items-start gap-4" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 shrink-0 mt-0.5" style="color: var(--color-brand-accent);" aria-hidden="true">
+          <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z" />
+          <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z" />
+        </svg>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Related</p>
+          <a href="/seamless-vs-sectional-gutters" class="text-sm font-semibold hover:underline" style="color: var(--color-brand-accent);">
+            Seamless vs. Sectional Gutters: What's the Difference? →
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rounded-xl p-8 text-center" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border-strong);">
+        <h2 class="font-bold mb-3" style="font-family: var(--font-family-display); font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-content-primary);">
+          Not sure what size your home needs?
+        </h2>
+        <p class="text-sm mb-6" style="color: var(--color-content-muted);">
+          Free estimate — I'll look at your roofline and tell you exactly what makes sense. No pressure, no upsell.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+            Get a Free Estimate
+          </a>
+          <a href="tel:+18176816041" class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+            Call (817) 681-6041
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+</BaseLayout>

@@ -1,0 +1,173 @@
+---
+// Educational article: seamless vs sectional gutters
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import fabricationImg from '../assets/images/copper-gutter-fabrication.webp';
+
+const title = 'Seamless vs. Sectional Gutters: What\'s the Difference? | Beacon Rain Control';
+const description = 'Sectional gutters have joints. Seamless gutters don\'t. Here\'s why that matters for Texas homeowners — and how Beacon Rain Control installs gutters built to last in Johnson County.';
+const canonical = 'https://beaconraincontrol.com/seamless-vs-sectional-gutters';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Seamless vs. Sectional Gutters: What Homeowners in Johnson County Need to Know',
+  description,
+  author: {
+    '@type': 'Person',
+    name: 'Tracy Neff',
+    jobTitle: 'Owner',
+    worksFor: { '@type': 'Organization', name: 'Beacon Rain Control' },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Beacon Rain Control',
+    url: 'https://beaconraincontrol.com',
+  },
+  datePublished: '2026-04-25',
+  dateModified: '2026-04-25',
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- Article header -->
+  <section class="py-14 md:py-20" style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <a href="/" class="inline-flex items-center gap-1.5 text-xs font-semibold mb-6 hover:underline" style="color: var(--color-brand-accent);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+        </svg>
+        Beacon Rain Control
+      </a>
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Gutter Guide</p>
+      <h1 class="font-bold leading-tight mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.75rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+        Seamless vs. Sectional Gutters: What Homeowners in Johnson County Need to Know
+      </h1>
+      <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+        If you're replacing gutters or getting them for the first time, you'll run into these two terms. Most homeowners don't know the difference until one type fails on them. Here's the straight version.
+      </p>
+    </div>
+  </section>
+
+  <!-- Article body -->
+  <article class="py-14 md:py-20">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          What are sectional gutters?
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Sectional gutters come pre-cut in 10- to 12-foot sections. During installation, those pieces get connected with joints and sealant. They're what you find at hardware stores, and they're what budget contractors use because they're cheaper to transport and don't require specialized equipment.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          The problem is the joints. Every spot where two sections meet is a place where water can get behind the gutter. Over time — especially with the heat expansion and cold snaps Texas gets — those joints open up. You end up with gutters dripping behind the fascia, which is the exact problem gutters are supposed to prevent.
+        </p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          What are seamless gutters?
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Seamless gutters are cut from a single continuous roll of aluminum, right at your house. A gutter machine — the truck-mounted equipment we bring to every job — feeds a coil of aluminum through rollers that form it into the gutter profile. It comes out already shaped and sized to the exact length of your roofline.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          The only joints in a seamless system are at the corners and the downspout connections. Those are the natural transition points — they're built for them, with mitered corners and proper flashing. The long straight runs have no seams at all.
+        </p>
+      </div>
+
+      <!-- Fabrication photo -->
+      <div class="rounded-xl overflow-hidden mb-10" style="border: 1px solid var(--color-border);">
+        <Image
+          src={fabricationImg}
+          alt="Tracy fabricating seamless gutters on-site using a truck-mounted gutter machine in Joshua, TX"
+          width={760}
+          height={430}
+          class="w-full h-auto"
+        />
+        <p class="text-xs px-4 py-2.5" style="color: var(--color-content-muted); background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
+          Every gutter is cut on-site — sized to your exact roofline, not adapted from stock sections.
+        </p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          Why this matters more in Texas than most places
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Johnson County summers hit 100°F and above. Winters bring hard freezes. That thermal cycling — hot, cold, hot, cold — acts on everything fastened to the outside of your house. Sectional gutters, especially ones installed with cheap sealants, expand and contract at every joint through hundreds of cycles. The seals fail. The joints open. Sometimes gradually, sometimes after one bad freeze.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          A seamless gutter has fewer failure points by design. Less to go wrong.
+        </p>
+      </div>
+
+      <!-- Callout box -->
+      <div class="rounded-xl p-6 mb-10" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border-strong);">
+        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--color-brand-accent);">The short version</p>
+        <p class="text-sm leading-relaxed" style="color: var(--color-content-primary);">
+          Sectional gutters: cheaper upfront, more joints, more points of failure. Seamless gutters: cut to fit your home, no joints along the straight runs, longer service life. In a climate with Texas heat and Texas storms, the seams are where sectional gutters always fail first.
+        </p>
+      </div>
+
+      <div class="prose-section mb-10">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          What about cost?
+        </h2>
+        <p class="text-base leading-relaxed mb-4" style="color: var(--color-content-muted);">
+          Seamless gutters cost more upfront than sectional. That's the honest answer. Installation requires a machine and a trained crew — it's not a DIY weekend project. What the premium buys you is a system that doesn't need resealing every few years and that holds up through Texas seasons without constant maintenance.
+        </p>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          A seamless system installed correctly should last 20+ years with minimal attention. Sectional gutters in this climate typically need attention well before that.
+        </p>
+      </div>
+
+      <div class="prose-section mb-12">
+        <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.2rem, 2.5vw, 1.5rem); color: var(--color-content-primary);">
+          What type does Beacon Rain Control install?
+        </h2>
+        <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
+          All seamless. Every gutter is cut on-site from aluminum coil using our gutter machine. Your gutters are sized to your exact roofline — not adapted from whatever sections were in the truck. It's the right way to do it, and it's the only way we do it.
+        </p>
+      </div>
+
+      <!-- Related article link -->
+      <div class="rounded-xl p-5 mb-12 flex items-start gap-4" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border);">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 shrink-0 mt-0.5" style="color: var(--color-brand-accent);" aria-hidden="true">
+          <path d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z" />
+          <path d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z" />
+        </svg>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">Related</p>
+          <a href="/5-inch-vs-6-inch-gutters" class="text-sm font-semibold hover:underline" style="color: var(--color-brand-accent);">
+            5-Inch vs. 6-Inch Gutters: Which Size Does Your Home Need? →
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="rounded-xl p-8 text-center" style="background-color: var(--color-surface-base); border: 1px solid var(--color-border-strong);">
+        <h2 class="font-bold mb-3" style="font-family: var(--font-family-display); font-size: clamp(1.25rem, 3vw, 1.75rem); color: var(--color-content-primary);">
+          Ready for a straight quote on seamless gutters?
+        </h2>
+        <p class="text-sm mb-6" style="color: var(--color-content-muted);">
+          Free estimate. No contracts. 5-year written warranty on every installation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+            Get a Free Estimate
+          </a>
+          <a href="tel:+18176816041" class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+            Call (817) 681-6041
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+</BaseLayout>
