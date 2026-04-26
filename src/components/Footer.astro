@@ -1,6 +1,7 @@
 ---
 // Footer — site-wide footer with contact info, service list, and service areas
 import site from '../data/site.json';
+import serviceAreas from '../data/serviceAreas.json';
 const year = new Date().getFullYear();
 ---
 
@@ -38,8 +39,10 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Service Areas</h3>
         <ul class="space-y-2">
-          {site.serviceAreas.slice(0, 8).map((area) => (
-            <li class="footer-link text-sm">{area}</li>
+          {serviceAreas.map((area) => (
+            <li>
+              <a href={`/${area.slug}`} class="footer-link text-sm">{area.city}</a>
+            </li>
           ))}
         </ul>
       </div>

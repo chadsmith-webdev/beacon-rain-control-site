@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import site from '../data/site.json';
+import serviceAreas from '../data/serviceAreas.json';
 
 import heroImg        from '../assets/images/seamless-gutter.jpg';
 import fabricationImg from '../assets/images/copper-gutter-fabrication.webp';
@@ -616,12 +617,24 @@ const testimonials = [
         </h2>
       </div>
       <div class="flex flex-wrap gap-3">
-        {site.serviceAreas.map((area) => (
+        {serviceAreas.map((area) => (
+          <a
+            href={`/${area.slug}`}
+            class="text-sm px-3 py-1.5 rounded-full border hover:underline"
+            style="border-color: var(--color-border-strong); color: var(--color-brand-accent); background-color: var(--color-surface-raised);"
+          >
+            {area.city}
+          </a>
+        ))}
+        {['Johnson County', 'Tarrant County'].map((name) => (
           <span class="text-sm px-3 py-1.5 rounded-full border" style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);">
-            {area}
+            {name}
           </span>
         ))}
       </div>
+      <a href="/service-areas" class="inline-block mt-6 text-sm font-semibold hover:underline" style="color: var(--color-brand-accent);">
+        See all service areas &rarr;
+      </a>
     </div>
   </section>
 
