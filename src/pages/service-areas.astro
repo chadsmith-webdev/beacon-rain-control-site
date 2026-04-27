@@ -3,6 +3,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
 import serviceAreas from '../data/serviceAreas.json';
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/brc-seamlessgutter_installation.jpg';
 
 const title = 'Gutter Installation Service Areas | Beacon Rain Control — Johnson County, TX';
 const description = 'Beacon Rain Control installs seamless aluminum gutters throughout Johnson County and Tarrant County, TX. Free estimates, 5-year written warranty. Find your city below.';
@@ -11,17 +13,40 @@ const canonical = `${site.siteUrl}/service-areas`;
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <!-- Header -->
-  <section class="py-14 md:py-20" style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Where We Work</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
+    <Image
+      src={heroImg}
+      alt=""
+      width={1400}
+      height={760}
+      class="absolute inset-0 w-full h-full object-cover object-top"
+      loading="eager"
+      aria-hidden="true"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(100deg, rgba(9,11,18,0.95) 0%, rgba(9,11,18,0.85) 45%, rgba(9,11,18,0.50) 100%), linear-gradient(to top, rgba(9,11,18,0.70) 0%, transparent 40%);"
+      aria-hidden="true"
+    ></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center py-20" style="min-height: clamp(560px, 70vh, 760px);">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Where I Work</p>
       <h1 class="font-bold leading-tight mb-4 max-w-2xl" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         Seamless Gutters in Johnson County and Tarrant County
       </h1>
-      <p class="text-base leading-relaxed max-w-2xl" style="color: var(--color-content-muted);">
-        Beacon Rain Control is based in Joshua, TX and serves communities across Johnson County, southern Tarrant County, and surrounding areas. Free same-day estimates, on-site fabrication, and a 5-year written warranty on every job.
+      <p class="text-base leading-relaxed max-w-2xl mb-8" style="color: var(--color-content-muted);">
+        Based in Joshua, TX — serving communities across Johnson County, southern Tarrant County, and surrounding areas. Free same-day estimates, on-site fabrication, and a 5-year written warranty on every job.
       </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+          Get a Free Estimate
+        </a>
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+          Call {site.phone}
+        </a>
+      </div>
     </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to bottom, transparent, var(--color-surface-bg));" aria-hidden="true"></div>
   </section>
 
   <!-- City cards -->
@@ -31,12 +56,12 @@ const canonical = `${site.siteUrl}/service-areas`;
         {serviceAreas.map((area) => (
           <a
             href={`/${area.slug}`}
-            class="group rounded-xl p-6 border flex flex-col gap-3 transition-colors duration-150"
-            style="background-color: var(--color-surface-base); border-color: var(--color-border);"
+            class="city-card rounded-xl p-6 border flex flex-col gap-3"
+            style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
           >
             <div>
-              <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: var(--color-brand-accent);">{area.county}</p>
-              <h2 class="font-bold text-lg group-hover:underline" style="font-family: var(--font-family-display); color: var(--color-content-primary);">
+              <p class="text-xs font-semibold uppercase tracking-widest mb-1" style="color: var(--color-content-muted);">{area.county}</p>
+              <h2 class="font-bold text-lg" style="font-family: var(--font-family-display); color: var(--color-content-primary);">
                 {area.city}, TX
               </h2>
             </div>
@@ -53,13 +78,14 @@ const canonical = `${site.siteUrl}/service-areas`;
   </section>
 
   <!-- CTA -->
-  <section class="py-16 md:py-20" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
+  <section class="py-20 md:py-28" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Service Areas</p>
       <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         Don't see your city?
       </h2>
       <p class="text-base mb-8 max-w-lg mx-auto" style="color: var(--color-content-muted);">
-        We serve a wide area around Joshua. If you're not sure whether we come out to you, give us a call or send a text — we'll let you know.
+        I serve a wide area around Joshua. If you're not sure whether I come out to you, give me a call or send a text — I'll let you know.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">
@@ -73,3 +99,12 @@ const canonical = `${site.siteUrl}/service-areas`;
   </section>
 
 </BaseLayout>
+
+<style>
+  .city-card {
+    transition: border-color 0.15s ease;
+  }
+  .city-card:hover {
+    border-color: rgba(254, 136, 54, 0.4);
+  }
+</style>
