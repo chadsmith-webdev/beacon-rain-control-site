@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
 import serviceAreas from '../data/serviceAreas.json';
 import { Image } from 'astro:assets';
+import heroImg from '../assets/images/residential-seamleass-gutter-installation2.jpg';
 import ownerImg from '../assets/images/brc-owner-tracy-neff-and-wife.jpg';
 
 const title = 'About Beacon Rain Control | Joshua, TX Gutter Company';
@@ -16,11 +17,11 @@ const citySlugMap = Object.fromEntries(serviceAreas.map((a) => [a.city, a.slug])
   <!-- Hero -->
   <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
     <Image
-      src={ownerImg}
-      alt="Tracy Neff, owner of Beacon Rain Control, Joshua TX"
+      src={heroImg}
+      alt=""
       width={1400}
       height={760}
-      class="absolute inset-0 w-full h-full object-cover object-top"
+      class="absolute inset-0 w-full h-full object-cover object-center"
       loading="eager"
       aria-hidden="true"
     />
@@ -68,6 +69,18 @@ const citySlugMap = Object.fromEntries(serviceAreas.map((a) => [a.city, a.slug])
             <p>
               Every installation comes with a 5-year warranty. Not because I'm required to offer it — because I build them to last and I'm confident enough to back that up in writing.
             </p>
+          </div>
+          <div class="mt-8">
+            <Image
+              src={ownerImg}
+              alt="Tracy Neff, owner of Beacon Rain Control, with his wife"
+              width={560}
+              height={420}
+              class="rounded-xl w-full object-cover object-top"
+              style="max-height: 340px;"
+              loading="lazy"
+            />
+            <p class="mt-3 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Tracy Neff — Owner, Beacon Rain Control</p>
           </div>
         </div>
 
