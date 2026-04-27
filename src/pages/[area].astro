@@ -4,7 +4,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
 import serviceAreas from '../data/serviceAreas.json';
 import { Image } from 'astro:assets';
-import areaHeroImg from '../assets/images/brc-seamlessgutter_installation.jpg';
+import heroImg0 from '../assets/images/brc-seamlessgutter_installation.jpg';
+import heroImg1 from '../assets/images/residential-seamleass-gutter-installation2.jpg';
+import heroImg2 from '../assets/images/farm-house-1.webp';
+
+const areaHeroImages = [heroImg0, heroImg1, heroImg2];
 
 export function getStaticPaths() {
   return serviceAreas.map((area) => ({
@@ -14,6 +18,8 @@ export function getStaticPaths() {
 }
 
 const { area } = Astro.props;
+const heroIndex = serviceAreas.findIndex((a) => a.slug === area.slug);
+const areaHeroImg = areaHeroImages[heroIndex % areaHeroImages.length];
 
 const title = `Gutter Installation in ${area.city}, TX | Beacon Rain Control`;
 const description = `Beacon Rain Control installs seamless aluminum gutters in ${area.city}, TX. Free estimates, 5-year written warranty, on-site fabrication. Call (817) 681-6041.`;
@@ -64,18 +70,18 @@ const testimonials = [
 <BaseLayout title={title} description={description} canonical={canonical}>
 
   <!-- Page header -->
-  <section class="relative overflow-hidden" style="min-height: clamp(400px, 50vh, 600px); border-bottom: 1px solid var(--color-border);">
+  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px); border-bottom: 1px solid var(--color-border);">
     <!-- Background image -->
     <Image
       src={areaHeroImg}
       alt={`Seamless gutter installation in ${area.city}, TX`}
       width={1400}
-      height={600}
+      height={760}
       class="absolute inset-0 w-full h-full object-cover object-top"
       loading="eager"
       aria-hidden="true"
     />
-    
+
     <!-- Gradient overlay for text contrast -->
     <div
       class="absolute inset-0"
@@ -83,7 +89,7 @@ const testimonials = [
       aria-hidden="true"
     ></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center py-16 md:py-20" style="min-height: clamp(400px, 50vh, 600px);">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center py-16 md:py-20" style="min-height: clamp(560px, 70vh, 760px);">
       <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
         Serving {area.county}
       </p>
