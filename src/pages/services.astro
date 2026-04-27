@@ -11,6 +11,7 @@ const description = 'Seamless gutter installation, gutter repair, gutter guards,
 const services = [
   {
     slug: 'seamless-gutter-installation',
+    category: 'Installation',
     name: 'Seamless Gutter Installation',
     intro: 'Traditional sectional gutters have joints every 10–12 feet — every joint is a place where water can back up, leak, or pull away from the fascia. Seamless gutters eliminate that problem.',
     details: [
@@ -23,6 +24,7 @@ const services = [
   },
   {
     slug: 'gutter-repair',
+    category: 'Repair',
     name: 'Gutter Repair',
     intro: 'Sagging gutters, leaking joints, gutters pulling away from the fascia — these aren\'t cosmetic problems. They\'re water damage waiting to happen. We diagnose what\'s actually wrong and fix it.',
     details: [
@@ -35,6 +37,7 @@ const services = [
   },
   {
     slug: 'gutter-guards',
+    category: 'Leaf Protection',
     name: 'Gutter Guards & Leaf Guards',
     intro: 'Gutters clogged with leaves and debris overflow — and overflowing gutters do the same damage as no gutters at all. The right guard depends on the trees around your home and your roof type.',
     details: [
@@ -47,6 +50,7 @@ const services = [
   },
   {
     slug: 'downspout-installation',
+    category: 'Drainage',
     name: 'Downspout Installation',
     intro: 'A gutter is only as good as its downspouts. Undersized, incorrectly placed, or too few downspouts back up the whole system. Water sits, overflows, and finds your foundation.',
     details: [
@@ -62,14 +66,14 @@ const services = [
 
 <BaseLayout title={title} description={description}>
   <!-- Page header -->
-  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px); border-bottom: 1px solid var(--color-border);">
+  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
     <!-- Background image -->
     <Image
       src={servicesHeroImg}
       alt="Seamless gutter installation"
       width={1400}
       height={760}
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-top"
       loading="eager"
       aria-hidden="true"
     />
@@ -77,7 +81,7 @@ const services = [
     <!-- Gradient overlay for text contrast -->
     <div
       class="absolute inset-0"
-      style="background: linear-gradient(100deg, rgba(14, 18, 32, 0.95) 0%, rgba(14, 18, 32, 0.85) 45%, rgba(14, 18, 32, 0.50) 100%);"
+      style="background: linear-gradient(100deg, rgba(9,11,18,0.95) 0%, rgba(9,11,18,0.85) 45%, rgba(9,11,18,0.50) 100%), linear-gradient(to top, rgba(9,11,18,0.70) 0%, transparent 40%);"
       aria-hidden="true"
     ></div>
 
@@ -86,13 +90,21 @@ const services = [
       <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         Gutter Services
       </h1>
-      <p class="text-lg max-w-2xl" style="color: var(--color-content-muted);">
+      <p class="text-lg max-w-2xl mb-8" style="color: var(--color-content-muted);">
         From full seamless gutter installations to repairs and guards — we do one thing and we do it right.
       </p>
-      <div class="mt-8 self-start inline-flex items-center gap-3 px-4 py-2.5 rounded-full border shadow-sm" style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);">
-        <div class="flex gap-0.5" aria-label="4.8 out of 5 stars">
+      <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+          Get a Free Estimate
+        </a>
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+          Call {site.phone}
+        </a>
+      </div>
+      <div class="self-start inline-flex items-center gap-3 px-4 py-2.5 rounded-full border shadow-sm" style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);">
+        <div class="flex gap-0.5" aria-label="{site.rating} out of 5 stars">
           {Array(5).fill(null).map(() => (
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4" style="color: #F59E0B;" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4" style="color: var(--color-star-amber);" aria-hidden="true">
               <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
             </svg>
           ))}
@@ -100,36 +112,34 @@ const services = [
         <span class="text-xs font-semibold" style="color: var(--color-content-primary);">{site.rating} stars &bull; {site.reviewCount} verified reviews</span>
       </div>
     </div>
+
+    <!-- Bottom fade into next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to bottom, transparent, var(--color-surface-bg));" aria-hidden="true"></div>
   </section>
 
   <!-- Services detail -->
   <section class="py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col gap-20">
+      <div class="flex flex-col gap-12 md:gap-20">
         {services.map((service, i) => (
-          <div id={service.slug} class="scroll-mt-24 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
+          <div
+            id={service.slug}
+            class={`scroll-mt-24 grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16${i > 0 ? ' pt-2 border-t' : ''}`}
+            style={i > 0 ? 'border-color: var(--color-border);' : ''}
+          >
             <div class="lg:col-span-3">
               <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
-                {String(i + 1).padStart(2, '0')}
+                {service.category}
               </p>
               <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
                 {service.name}
               </h2>
               <p class="text-base leading-relaxed mb-6" style="color: var(--color-content-muted);">{service.intro}</p>
               {service.note && (
-                <p class="text-sm italic mb-6" style="color: var(--color-brand-accent);">{service.note}</p>
+                <p class="text-xs font-semibold inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full" style="background-color: var(--color-brand-tint); color: var(--color-brand-accent);">
+                  {service.note}
+                </p>
               )}
-              <div class="mt-2 flex flex-wrap items-center gap-5">
-                <a href="/contact" class="cta-primary inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold text-sm">
-                  Get a Free Estimate
-                </a>
-                <div class="inline-flex items-center gap-1.5 hidden sm:flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" style="color: var(--color-brand-accent);" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                  </svg>
-                  <span class="text-xs font-semibold" style="color: var(--color-content-muted);">{site.warranty} Warranty</span>
-                </div>
-              </div>
             </div>
             <div class="lg:col-span-2">
               <div
@@ -158,11 +168,12 @@ const services = [
   <!-- CTA -->
   <section class="py-20 md:py-28" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Free Estimates</p>
       <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
-        Not sure what you need?
+        Ready to get a quote?
       </h2>
       <p class="text-lg mb-8 max-w-lg mx-auto" style="color: var(--color-content-muted);">
-        Call or send a message — we'll come take a look and give you a straight answer. Free, no obligation.
+        Call or send a message — I'll come out, take a look, and give you a straight number. Free, no obligation.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">

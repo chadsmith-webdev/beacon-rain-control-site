@@ -19,6 +19,9 @@
   --color-border: rgba(255, 255, 255, 0.06);
   --color-border-strong: rgba(255, 255, 255, 0.12);
 
+  /* Utility */
+  --color-star-amber: #F59E0B;
+
   /* Typography */
   --font-family-display: Georgia, "Times New Roman", serif;
   --font-family-body: "Helvetica Neue", Arial, sans-serif;
