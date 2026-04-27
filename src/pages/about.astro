@@ -2,23 +2,51 @@
 // About page — the business story, owner, service area, and values
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
+import serviceAreas from '../data/serviceAreas.json';
+import { Image } from 'astro:assets';
+import ownerImg from '../assets/images/brc-owner-tracy-neff-and-wife.jpg';
 
 const title = 'About Beacon Rain Control | Joshua, TX Gutter Company';
 const description = 'Beacon Rain Control is a family-owned gutter company based in Joshua, TX. Serving Johnson County and Tarrant County with seamless gutter installation, repair, and guards.';
+
+const citySlugMap = Object.fromEntries(serviceAreas.map((a) => [a.city, a.slug]));
 ---
 
 <BaseLayout title={title} description={description}>
-  <!-- Page header -->
-  <section style="background-color: var(--color-surface-base); border-bottom: 1px solid var(--color-border);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">About Us</p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
+    <Image
+      src={ownerImg}
+      alt="Tracy Neff, owner of Beacon Rain Control, Joshua TX"
+      width={1400}
+      height={760}
+      class="absolute inset-0 w-full h-full object-cover object-top"
+      loading="eager"
+      aria-hidden="true"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(100deg, rgba(9,11,18,0.95) 0%, rgba(9,11,18,0.85) 45%, rgba(9,11,18,0.50) 100%), linear-gradient(to top, rgba(9,11,18,0.70) 0%, transparent 40%);"
+      aria-hidden="true"
+    ></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center py-20" style="min-height: clamp(560px, 70vh, 760px);">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Joshua, TX</p>
       <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         A gutter company that shows up and does the job right
       </h1>
-      <p class="text-lg max-w-2xl" style="color: var(--color-content-muted);">
+      <p class="text-lg max-w-2xl mb-8" style="color: var(--color-content-muted);">
         Based in Joshua, TX. Serving Johnson County and Tarrant County homeowners since day one.
       </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+          Get a Free Estimate
+        </a>
+        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+          Call {site.phone}
+        </a>
+      </div>
     </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16" style="background: linear-gradient(to bottom, transparent, var(--color-surface-bg));" aria-hidden="true"></div>
   </section>
 
   <!-- Story -->
@@ -26,18 +54,19 @@ const description = 'Beacon Rain Control is a family-owned gutter company based 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <div>
+          <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Our Story</p>
           <h2 class="font-bold mb-6" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
-            Built on showing up when we say we will
+            Built on showing up when I say I will
           </h2>
           <div class="space-y-4 text-base leading-relaxed" style="color: var(--color-content-muted);">
             <p>
               Beacon Rain Control was built on a simple idea: do quality gutter work, show up on time, leave the job cleaner than you found it, and stand behind what you installed.
             </p>
             <p>
-              We specialize in seamless aluminum gutter installation because it's the right product for this climate. Texas gets real rain — short, hard storms that overwhelm gutters with joints and sags. Seamless gutters handle that. We cut every run on-site so it fits your home exactly.
+              I specialize in seamless aluminum gutter installation because it's the right product for this climate. Texas gets real rain — short, hard storms that overwhelm gutters with joints and sags. Seamless gutters handle that. I cut every run on-site so it fits your home exactly.
             </p>
             <p>
-              Every installation comes with a 5-year warranty. Not because we're required to offer it — because we build them to last and we're confident enough to back that up in writing.
+              Every installation comes with a 5-year warranty. Not because I'm required to offer it — because I build them to last and I'm confident enough to back that up in writing.
             </p>
           </div>
         </div>
@@ -53,7 +82,7 @@ const description = 'Beacon Rain Control is a family-owned gutter company based 
           ].map((item) => (
             <div
               class="flex items-start gap-4 rounded-xl p-5 border"
-              style="background-color: var(--color-surface-base); border-color: var(--color-border);"
+              style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
             >
               <div class="min-w-[120px] text-xs font-semibold uppercase tracking-widest pt-0.5" style="color: var(--color-content-muted);">{item.label}</div>
               <div class="text-sm font-medium" style="color: var(--color-content-primary);">{item.value}</div>
@@ -64,31 +93,35 @@ const description = 'Beacon Rain Control is a family-owned gutter company based 
     </div>
   </section>
 
-  <!-- What you can expect -->
+  <!-- What to expect -->
   <section class="py-20 md:py-24" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12 max-w-xl">
         <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What to Expect</p>
         <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 2.5vw, 2rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
-          How we work
+          How I work
         </h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
-            title: 'We give you a real quote',
-            body: 'We come out, measure, and give you a price — in writing, same day when possible. No vague estimates, no bait-and-switch on the day of install.',
+            step: '01',
+            title: 'I give you a real quote',
+            body: 'I come out, measure, and give you a price — in writing, same day when possible. No vague estimates, no bait-and-switch on the day of install.',
           },
           {
-            title: 'We show up when we say we will',
-            body: 'Your time matters. We schedule a window, we show up in it. If something changes on our end, we call you ahead of time — not after.',
+            step: '02',
+            title: 'I show up when I say I will',
+            body: "Your time matters. I schedule a window, I show up in it. If something changes on my end, I call you ahead of time — not after.",
           },
           {
-            title: 'We leave your yard clean',
-            body: 'Old gutters, downspout straps, packaging, every scrap — gone before we leave. You\'ll know the gutters are new because you can see them. You won\'t know we were there from the ground.',
+            step: '03',
+            title: 'I leave your yard clean',
+            body: "Old gutters, downspout straps, packaging, every scrap — gone before I leave. You'll know the gutters are new because you can see them. You won't know I was there from the ground.",
           },
         ].map((item) => (
-          <div>
+          <div class="rounded-xl p-6 border" style="background-color: var(--color-surface-raised); border-color: var(--color-border);">
+            <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">{item.step}</p>
             <h3 class="text-base font-semibold mb-3" style="color: var(--color-content-primary);">{item.title}</h3>
             <p class="text-sm leading-relaxed" style="color: var(--color-content-muted);">{item.body}</p>
           </div>
@@ -106,17 +139,28 @@ const description = 'Beacon Rain Control is a family-owned gutter company based 
           Joshua, TX and the surrounding communities
         </h2>
         <p class="text-base max-w-xl" style="color: var(--color-content-muted);">
-          We're based in Joshua and serve homes throughout Johnson County and into Tarrant County. Not sure if we cover your area? Call and ask — we'll be straight with you.
+          I'm based in Joshua and serve homes throughout Johnson County and into Tarrant County. Not sure if I cover your area? Call and ask — I'll be straight with you.
         </p>
       </div>
       <div class="flex flex-wrap gap-3">
         {site.serviceAreas.map((area) => (
-          <span
-            class="text-sm px-3 py-1.5 rounded-full border"
-            style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);"
-          >
-            {area}
-          </span>
+          citySlugMap[area]
+            ? (
+              <a
+                href={`/${citySlugMap[area]}`}
+                class="text-sm px-3 py-1.5 rounded-full border transition-colors duration-150"
+                style="border-color: var(--color-border-strong); color: var(--color-brand-accent); background-color: var(--color-surface-raised);"
+              >
+                {area}
+              </a>
+            ) : (
+              <span
+                class="text-sm px-3 py-1.5 rounded-full border"
+                style="border-color: var(--color-border-strong); color: var(--color-content-muted); background-color: var(--color-surface-raised);"
+              >
+                {area}
+              </span>
+            )
         ))}
       </div>
     </div>
@@ -125,11 +169,12 @@ const description = 'Beacon Rain Control is a family-owned gutter company based 
   <!-- CTA -->
   <section class="py-20 md:py-28" style="background-color: var(--color-surface-base); border-top: 1px solid var(--color-border);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Free Estimates</p>
       <h2 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(1.75rem, 4vw, 2.5rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
         Ready to get a free estimate?
       </h2>
       <p class="text-lg mb-8 max-w-md mx-auto" style="color: var(--color-content-muted);">
-        Call us or fill out the form. We'll get back to you the same day.
+        Call or fill out the form. I'll get back to you the same day.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/contact" class="cta-primary inline-flex items-center justify-center px-8 py-4 rounded font-semibold">
