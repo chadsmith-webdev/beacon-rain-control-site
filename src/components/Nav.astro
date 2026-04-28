@@ -61,30 +61,43 @@ const navLinks = [
     </div>
   </div>
 
-  <!-- Mobile menu -->
+  <!-- Mobile menu — CSS-animated, starts closed -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-t"
+    class="mobile-menu md:hidden border-t"
+    aria-hidden="true"
     style="background-color: var(--color-surface-base); border-color: var(--color-border);"
   >
     <nav class="flex flex-col px-4 py-4 gap-1" aria-label="Mobile navigation">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class="text-sm font-medium px-2 py-2.5 rounded"
+          class="mobile-nav-link text-sm font-medium px-2 py-2.5 rounded"
           aria-current={pathname.startsWith(href) ? 'page' : undefined}
           style={pathname.startsWith(href)
-            ? 'color: var(--color-brand-accent);'
+            ? 'color: var(--color-brand-navy); font-weight: 600;'
             : 'color: var(--color-content-primary);'}
+          tabindex="-1"
         >
           {label}
         </a>
       ))}
       <div class="border-t mt-2 pt-4" style="border-color: var(--color-border);">
-        <a href={site.phoneLink} class="text-sm font-semibold py-2 block" style="color: var(--color-brand-accent);" aria-label={`Call Beacon Rain Control in Joshua, TX: ${site.phone}`}>
+        <a
+          href={site.phoneLink}
+          class="text-sm font-semibold py-2 block"
+          style="color: var(--color-brand-accent);"
+          aria-label={`Call Beacon Rain Control in Joshua, TX: ${site.phone}`}
+          tabindex="-1"
+        >
           {site.phone}
         </a>
-        <a href="/contact" class="nav-cta mt-3 text-sm font-semibold px-4 py-3 rounded border text-center block" aria-label="Request a free gutter estimate in Joshua, TX">
+        <a
+          href="/contact"
+          class="nav-cta mt-3 text-sm font-semibold px-4 py-3 rounded border text-center block"
+          aria-label="Request a free gutter estimate in Joshua, TX"
+          tabindex="-1"
+        >
           Get a Free Estimate in Joshua, TX
         </a>
       </div>
@@ -92,17 +105,74 @@ const navLinks = [
   </div>
 </header>
 
+<style>
+  .mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+  }
+  .mobile-menu.is-open {
+    max-height: 600px;
+    opacity: 1;
+  }
+  .mobile-nav-link {
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+  .mobile-nav-link:hover {
+    color: var(--color-brand-navy) !important;
+    background-color: var(--color-brand-tint);
+  }
+</style>
+
 <script>
-  const toggle = document.getElementById('nav-toggle');
+  const toggle = document.getElementById('nav-toggle') as HTMLButtonElement | null;
   const menu = document.getElementById('mobile-menu');
-  const open = document.getElementById('hamburger-open');
-  const close = document.getElementById('hamburger-close');
+  const openIcon = document.getElementById('hamburger-open');
+  const closeIcon = document.getElementById('hamburger-close');
+
+  function getFocusables(): HTMLElement[] {
+    return [...(menu?.querySelectorAll('a, button') ?? [])] as HTMLElement[];
+  }
+
+  function openMenu() {
+    menu?.classList.add('is-open');
+    menu?.setAttribute('aria-hidden', 'false');
+    toggle?.setAttribute('aria-expanded', 'true');
+    openIcon?.classList.add('hidden');
+    closeIcon?.classList.remove('hidden');
+    // Enable tab access and focus first link after transition begins
+    getFocusables().forEach(el => el.removeAttribute('tabindex'));
+    requestAnimationFrame(() => getFocusables()[0]?.focus());
+  }
+
+  function closeMenu() {
+    menu?.classList.remove('is-open');
+    menu?.setAttribute('aria-hidden', 'true');
+    toggle?.setAttribute('aria-expanded', 'false');
+    openIcon?.classList.remove('hidden');
+    closeIcon?.classList.add('hidden');
+    // Remove from tab order when closed
+    getFocusables().forEach(el => el.setAttribute('tabindex', '-1'));
+    toggle?.focus();
+  }
 
   toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    menu?.classList.toggle('hidden');
-    open?.classList.toggle('hidden');
-    close?.classList.toggle('hidden');
+    const isOpen = menu?.classList.contains('is-open');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Escape closes the menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+
+  // Close menu on any nav link click (page navigation)
+  getFocusables().forEach(el => {
+    if (el.tagName === 'A') {
+      el.addEventListener('click', closeMenu);
+    }
   });
 </script>
