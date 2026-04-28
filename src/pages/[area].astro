@@ -85,7 +85,7 @@ const testimonials = [
     <!-- Gradient overlay for text contrast -->
     <div
       class="absolute inset-0"
-      style="background: linear-gradient(100deg, rgba(14, 18, 32, 0.95) 0%, rgba(14, 18, 32, 0.85) 45%, rgba(14, 18, 32, 0.50) 100%);"
+      style="background: linear-gradient(100deg, rgba(40,59,119,0.92) 0%, rgba(40,59,119,0.80) 45%, rgba(40,59,119,0.45) 100%), linear-gradient(to top, rgba(40,59,119,0.65) 0%, transparent 40%);"
       aria-hidden="true"
     ></div>
 
@@ -93,23 +93,22 @@ const testimonials = [
       <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
         Serving {area.county}
       </p>
-      <h1 class="font-bold leading-tight mb-4 max-w-2xl" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+      <h1 class="font-bold leading-tight mb-4 max-w-2xl" style="font-family: var(--font-family-display); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.02em; color: #ffffff;">
         Seamless Gutter Installation in {area.city}, TX
       </h1>
-      <p class="text-base leading-relaxed mb-8 max-w-2xl" style="color: var(--color-content-muted);">
+      <p class="text-base leading-relaxed mb-8 max-w-2xl" style="color: rgba(255,255,255,0.82);">
         {area.intro}
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
           Get a Free Estimate in {area.city}
         </a>
-        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+        <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
           Call {site.phone}
         </a>
         <a
           href={`sms:+1${site.phone.replace(/\D/g,'')}&body=Hi%2C%20I%20need%20a%20free%20gutter%20estimate%20in%20${encodeURIComponent(area.city)}%2C%20TX.%20Can%20you%20reach%20out%3F`}
-          class="inline-flex items-center justify-center gap-1.5 px-7 py-3.5 rounded font-semibold text-sm border"
-          style="border-color: var(--color-border-strong); color: var(--color-content-muted);"
+          class="hero-cta-ghost inline-flex items-center justify-center gap-1.5 px-7 py-3.5 rounded font-semibold text-sm border"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
             <path fill-rule="evenodd" d="M2 5a2 2 0 012-2h12a2 2 0 012 2v7a2 2 0 01-2 2H6l-4 4V5z" clip-rule="evenodd" />

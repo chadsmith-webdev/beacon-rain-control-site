@@ -27,22 +27,22 @@ const citySlugMap = Object.fromEntries(serviceAreas.map((a) => [a.city, a.slug])
     />
     <div
       class="absolute inset-0"
-      style="background: linear-gradient(100deg, rgba(9,11,18,0.95) 0%, rgba(9,11,18,0.85) 45%, rgba(9,11,18,0.50) 100%), linear-gradient(to top, rgba(9,11,18,0.70) 0%, transparent 40%);"
+      style="background: linear-gradient(100deg, rgba(40,59,119,0.92) 0%, rgba(40,59,119,0.80) 45%, rgba(40,59,119,0.45) 100%), linear-gradient(to top, rgba(40,59,119,0.65) 0%, transparent 40%);"
       aria-hidden="true"
     ></div>
     <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center py-20" style="min-height: clamp(560px, 70vh, 760px);">
       <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Joshua, TX</p>
-      <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
+      <h1 class="font-bold mb-4" style="font-family: var(--font-family-display); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.02em; color: #ffffff;">
         A gutter company that shows up and does the job right
       </h1>
-      <p class="text-lg max-w-2xl mb-8" style="color: var(--color-content-muted);">
+      <p class="text-lg max-w-2xl mb-8" style="color: rgba(255,255,255,0.82);">
         Based in Joshua, TX. Serving Johnson County and Tarrant County homeowners since day one.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
           Get a Free Estimate
         </a>
-        <a href={site.phoneLink} class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+        <a href={site.phoneLink} class="hero-cta-ghost inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
           Call {site.phone}
         </a>
       </div>
