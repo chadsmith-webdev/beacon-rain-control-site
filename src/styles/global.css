@@ -1,23 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand — derived from #FE8836 orange logo */
-  --color-brand-accent: #fe8836;
-  --color-brand-accent-dark: #d96e1a;
-  --color-brand-tint: #2a1a08;
+  /* Brand — derived from #FE8636 orange + #283B77 navy logo */
+  --color-brand-accent: #fe8636;
+  --color-brand-accent-dark: #d96b24;
+  --color-brand-navy: #283b77;
+  --color-brand-navy-light: #3a52a0;
+  --color-brand-tint: #eef0f8;
 
-  /* Surfaces — very dark navy near-blacks; hue from logo navy #263778 */
-  --color-surface-bg: #090b12;
-  --color-surface-base: #0e1220;
-  --color-surface-raised: #151c30;
+  /* Surfaces — light theme; navy available for section accents */
+  --color-surface-bg: #ffffff;
+  --color-surface-base: #f5f6fb;
+  --color-surface-raised: #eceef6;
+  --color-surface-navy: #283b77;
 
-  /* Content — passes 4.5:1 on all three surfaces */
-  --color-content-primary: #f2f1ef;
-  --color-content-muted: #9e9288;
+  /* Content — dark navy text on light surfaces */
+  --color-content-primary: #1a2340;
+  --color-content-muted: #556080;
+  --color-content-on-navy: #ffffff;
 
-  /* Borders */
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-strong: rgba(255, 255, 255, 0.12);
+  /* Borders — navy-tinted at low opacity */
+  --color-border: rgba(40, 59, 119, 0.10);
+  --color-border-strong: rgba(40, 59, 119, 0.20);
 
   /* Utility */
   --color-star-amber: #F59E0B;
@@ -44,21 +48,21 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--color-brand-accent);
+  outline: 2px solid var(--color-brand-navy);
   outline-offset: 2px;
 }
 
-/* Primary CTA — filled orange, dark text for contrast (#FE8836 is too light for white) */
+/* Primary CTA — orange fill, navy text (orange fails WCAG on white) */
 .cta-primary {
   background-color: var(--color-brand-accent);
-  color: var(--color-surface-bg);
+  color: var(--color-brand-navy);
   transition: background-color 0.15s ease;
 }
 .cta-primary:hover {
   background-color: var(--color-brand-accent-dark);
 }
 
-/* Secondary CTA — outlined, subtle orange hover */
+/* Secondary CTA — navy outline, subtle navy fill on hover */
 .cta-secondary {
   border-color: var(--color-border-strong);
   color: var(--color-content-primary);
@@ -67,8 +71,8 @@ textarea:focus-visible {
     background-color 0.15s ease;
 }
 .cta-secondary:hover {
-  border-color: rgba(254, 136, 54, 0.4);
-  background-color: rgba(254, 136, 54, 0.06);
+  border-color: rgba(40, 59, 119, 0.40);
+  background-color: rgba(40, 59, 119, 0.06);
 }
 
 /* Nav links */
@@ -77,7 +81,7 @@ textarea:focus-visible {
   transition: color 0.15s ease;
 }
 .nav-link:hover {
-  color: var(--color-brand-accent);
+  color: var(--color-brand-navy);
 }
 
 /* Active nav link — current page indicator */
@@ -87,17 +91,17 @@ textarea:focus-visible {
   padding-bottom: 2px;
 }
 
-/* Nav CTA — outline pill that fills on hover */
+/* Nav CTA — navy outlined pill, fills navy on hover */
 .nav-cta {
-  border-color: var(--color-brand-accent);
-  color: var(--color-brand-accent);
+  border-color: var(--color-brand-navy);
+  color: var(--color-brand-navy);
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
 }
 .nav-cta:hover {
-  background-color: var(--color-brand-accent);
-  color: var(--color-surface-bg);
+  background-color: var(--color-brand-navy);
+  color: #ffffff;
 }
 
 /* Hero secondary CTA — white-bordered outline on photo background */
@@ -119,7 +123,7 @@ textarea:focus-visible {
   transition: color 0.15s ease;
 }
 .footer-link:hover {
-  color: var(--color-brand-accent);
+  color: var(--color-brand-navy);
 }
 
 /* Service cards */
@@ -137,7 +141,7 @@ textarea:focus-visible {
 
 /* Select — restore custom arrow after appearance-none */
 select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%239E9288'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23556080'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 1.25rem;
