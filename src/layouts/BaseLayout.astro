@@ -71,6 +71,24 @@ const ogImageUrl = ogImage ?? (import.meta.env.PROD ? `${siteUrl}/og-image.jpg` 
 
     <Footer />
 
+    <!-- Scroll reveal observer -->
+    <script>
+      (() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+      })();
+    </script>
+
     <!-- Sticky mobile CTA bar — visible only on small screens -->
     <div
       class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex border-t"
