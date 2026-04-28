@@ -319,7 +319,7 @@ const testimonials = [
           <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
             <h3 class="font-semibold text-base" style="color: var(--color-content-primary);">{service.name}</h3>
             <p class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">{service.description}</p>
-            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-accent);" aria-label={`Learn more about ${service.name} in Joshua, TX`}>
+            <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-navy);" aria-label={`Learn more about ${service.name} in Joshua, TX`}>
               Learn More
             </a>
           </article>
@@ -582,7 +582,7 @@ const testimonials = [
       <div class="divide-y" style="border-color: var(--color-border);">
         {faqItems.map((item) => (
           <details class="group py-1">
-            <summary class="faq-summary flex items-center justify-between gap-6 py-4 cursor-pointer">
+            <summary class="faq-summary flex items-center justify-between gap-6 py-4 cursor-pointer list-none">
               <span class="text-sm font-semibold leading-snug" style="color: var(--color-content-primary);">{item.q}</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="faq-chevron w-4 h-4 shrink-0 transition-transform duration-200" style="color: var(--color-brand-accent);" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" />
@@ -632,7 +632,7 @@ const testimonials = [
           </span>
         ))}
       </div>
-      <a href="/service-areas" class="inline-block mt-6 text-sm font-semibold hover:underline" style="color: var(--color-brand-accent);">
+      <a href="/service-areas" class="inline-block mt-6 text-sm font-semibold hover:underline" style="color: var(--color-brand-navy);">
         See all service areas &rarr;
       </a>
     </div>
