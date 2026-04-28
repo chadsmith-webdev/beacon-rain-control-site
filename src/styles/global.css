@@ -56,10 +56,15 @@ textarea:focus-visible {
 .cta-primary {
   background-color: var(--color-brand-accent);
   color: var(--color-brand-navy);
-  transition: background-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 .cta-primary:hover {
   background-color: var(--color-brand-accent-dark);
+}
+.cta-primary:active {
+  transform: scale(0.97);
 }
 
 /* Secondary CTA — navy outline, subtle navy fill on hover */
@@ -68,11 +73,15 @@ textarea:focus-visible {
   color: var(--color-content-primary);
   transition:
     border-color 0.15s ease,
-    background-color 0.15s ease;
+    background-color 0.15s ease,
+    transform 0.1s ease;
 }
 .cta-secondary:hover {
   border-color: rgba(40, 59, 119, 0.4);
   background-color: rgba(40, 59, 119, 0.06);
+}
+.cta-secondary:active {
+  transform: scale(0.97);
 }
 
 /* Nav links — sliding underline on hover/active */
@@ -114,11 +123,15 @@ textarea:focus-visible {
   color: var(--color-brand-navy);
   transition:
     background-color 0.15s ease,
-    color 0.15s ease;
+    color 0.15s ease,
+    transform 0.1s ease;
 }
 .nav-cta:hover {
   background-color: var(--color-brand-navy);
   color: #ffffff;
+}
+.nav-cta:active {
+  transform: scale(0.97);
 }
 
 /* Hero secondary CTA — white-bordered outline on photo background */
@@ -201,12 +214,38 @@ textarea:focus-visible {
   background-color: var(--color-surface-base);
   border-color: var(--color-border);
   transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease;
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 .service-card:hover {
   border-color: var(--color-border-strong);
   background-color: var(--color-surface-raised);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(40, 59, 119, 0.09);
+}
+
+/* Card lift — subtle hover for testimonial/feature cards */
+.card-lift {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 59, 119, 0.08);
+}
+
+/* FAQ accordion — chevron rotates when open */
+details[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Form fields — navy border on focus */
+.form-field:focus {
+  border-color: var(--color-brand-navy) !important;
+  box-shadow: 0 0 0 3px rgba(40, 59, 119, 0.12);
 }
 
 /* Select — restore custom arrow after appearance-none */
