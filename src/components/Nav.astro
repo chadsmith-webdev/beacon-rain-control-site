@@ -105,6 +105,17 @@ const navLinks = [
   </div>
 </header>
 
+<script>
+  const header = document.querySelector('header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 10
+        ? '0 1px 12px rgba(40,59,119,0.10)'
+        : '';
+    }, { passive: true });
+  }
+</script>
+
 <style>
   .mobile-menu {
     max-height: 0;
