@@ -315,6 +315,9 @@ const testimonials = [
           100% { transform: translateX(-50%); }
         }
       }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track { animation: none; }
+      }
     </style>
   </section>
 
