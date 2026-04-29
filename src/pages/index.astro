@@ -79,11 +79,11 @@ const faqItems = [
   },
   {
     q: 'How long does gutter installation take?',
-    a: 'Most homes are done in a single day. We show up, fabricate the gutters on-site with our gutter machine, and install them the same visit — there\'s no waiting on pre-ordered materials. Larger homes or commercial jobs may run two days. You won\'t have a half-finished project sitting on your house overnight.',
+    a: 'Most homes are done in a single day. I show up, fabricate the gutters on-site with my gutter machine, and install them the same visit — there\'s no waiting on pre-ordered materials. Larger homes or commercial jobs may run two days. You won\'t have a half-finished project sitting on your house overnight.',
   },
   {
     q: 'What does the 5-year warranty cover?',
-    a: 'It covers our workmanship — the installation itself. If gutters we installed pull away from the fascia, sag, or leak at a connection we made, we come back and fix it at no charge. The warranty is written, not just verbal, and it goes with the installation. It doesn\'t cover storm damage or damage from lack of maintenance, but for normal use it\'s solid coverage.',
+    a: 'It covers my workmanship — the installation itself. If gutters I installed pull away from the fascia, sag, or leak at a connection I made, I come back and fix it at no charge. The warranty is written, not just verbal, and it goes with the installation. It doesn\'t cover storm damage or damage from lack of maintenance, but for normal use it\'s solid coverage.',
   },
   {
     q: 'Do you do gutter repairs, or only new installs?',
@@ -91,7 +91,7 @@ const faqItems = [
   },
   {
     q: 'What areas do you serve?',
-    a: 'We\'re based in Joshua and serve all of Johnson County — Burleson, Cleburne, Crowley, Alvarado, Grandview, Mansfield, and surrounding areas. We also serve parts of Tarrant County. If you\'re near the edge of our service area, give us a call and we\'ll let you know.',
+    a: 'I\'m based in Joshua and serve all of Johnson County — Burleson, Cleburne, Crowley, Alvarado, Grandview, Mansfield, and surrounding areas. I also serve parts of Tarrant County. If you\'re near the edge of my service area, give me a call and I\'ll let you know.',
   },
 ];
 
@@ -134,6 +134,7 @@ const testimonials = [
       height={800}
       class="absolute inset-0 w-full h-full object-cover object-center"
       loading="eager"
+      fetchpriority="high"
       aria-hidden="true"
     />
 
@@ -159,8 +160,8 @@ const testimonials = [
         
         <!-- Inline Quick Quote Form -->
         <form action="/contact" method="POST" class="mt-8 flex flex-col md:flex-row gap-3 p-3 rounded-xl border shadow-2xl" style="background-color: rgba(40, 59, 119, 0.80); backdrop-filter: blur(8px); border-color: rgba(255,255,255,0.20);">
-          <input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
-          <input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
+          <input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
+          <input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" autocomplete="tel" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
           <select name="service" required aria-label="Service Needed" class="w-full md:w-auto flex-1 rounded-md px-4 py-3 text-sm border appearance-none" style="background-color: var(--color-surface-bg); border-color: var(--color-border); color: var(--color-content-primary);">
             <option value="" disabled selected>Service Needed</option>
             <option value="New Gutters">New Gutters</option>
@@ -309,7 +310,7 @@ const testimonials = [
   <section class="py-24 md:py-32">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-12" data-reveal>
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What We Do</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What I Do</p>
         <h2 class="section-h2">
           Gutter services built around your home
         </h2>
@@ -341,14 +342,14 @@ const testimonials = [
             Most gutter problems start with gutters that weren't built for the home they're on. Beacon Rain Control measures and cuts every gutter on-site — no pre-made sections, no exposed seams where water collects and leaks.
           </p>
           <p class="text-base leading-relaxed" style="color: var(--color-content-muted);">
-            Every job is backed by a {site.warranty} warranty. If something isn't right, we come back and make it right.
+            Every job is backed by a {site.warranty} warranty. If something isn't right, I come back and make it right.
           </p>
         </div>
         <div class="grid grid-cols-1 gap-4">
           {[
             { label: 'Same-day quotes', detail: 'Most estimates are turned around the same day you call.' },
-            { label: 'On time, every time', detail: 'Customers consistently note we show up when we say we will.' },
-            { label: 'Clean jobsite', detail: 'We haul everything out — no debris left behind.' },
+            { label: 'On time, every time', detail: 'I show up when I say I will.' },
+            { label: 'Clean jobsite', detail: 'I haul everything out — no debris left behind.' },
             { label: '5-year warranty', detail: 'All gutter installations are backed by a written warranty.' },
             { label: 'Exact color matching', detail: 'Choose from over 30+ custom aluminum colors to perfectly match your trim and fascia.' },
           ].map((item) => (
@@ -454,9 +455,9 @@ const testimonials = [
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12">
         {[
-          { step: '01', title: 'Free estimate', body: 'Call or email — we come out, measure your roofline, and give you a straight quote. No pressure, no obligation.' },
-          { step: '02', title: 'Custom fabrication on-site', body: 'We cut and form your gutters on-site from a continuous run of aluminum. Fit to your home, not off a shelf.' },
-          { step: '03', title: 'Clean install, clean yard', body: 'Gutters go up, old materials come down, and we clean up before we leave. You get a warranty card and a clean gutterline.' },
+          { step: '01', title: 'Free estimate', body: 'Call or email — I\'ll come out, measure your roofline, and give you a straight quote. No pressure, no obligation.' },
+          { step: '02', title: 'Custom fabrication on-site', body: 'I cut and form your gutters on-site from a continuous run of aluminum. Fit to your home, not off a shelf.' },
+          { step: '03', title: 'Clean install, clean yard', body: 'Gutters go up, old materials come down, and I clean up before I leave. You get a warranty card and a clean gutterline.' },
         ].map((item) => (
           <div class="flex flex-col gap-4">
             <div class="text-3xl font-bold" style="font-family: var(--font-family-mono); color: var(--color-brand-accent); opacity: 0.5;" aria-hidden="true">
@@ -488,7 +489,7 @@ const testimonials = [
         <div class="rounded-xl p-8 border flex flex-col justify-center" style="background-color: var(--color-surface-base); border-color: var(--color-border-strong);">
           <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Custom Colors</p>
           <h2 class="font-bold text-2xl mb-4" style="font-family: var(--font-family-display); color: var(--color-content-primary);">Exact color matching for your home</h2>
-          <p class="text-sm leading-relaxed mb-8" style="color: var(--color-content-muted);">Gutters shouldn't be an eyesore. We offer over 30 custom baked-on enamel colors to perfectly match your fascia, trim, or brick. The finish is guaranteed not to blister, flake, or peel.</p>
+          <p class="text-sm leading-relaxed mb-8" style="color: var(--color-content-muted);">Gutters shouldn't be an eyesore. I offer over 30 custom baked-on enamel colors to perfectly match your fascia, trim, or brick. The finish is guaranteed not to blister, flake, or peel.</p>
           <div class="flex flex-wrap gap-3">
             {[
               '#FFFFFF', '#EAE6D7', '#D1C7B3', '#A89F91', '#8C7D70', '#594A42', 
@@ -505,7 +506,7 @@ const testimonials = [
           <div class="absolute -right-6 -top-6 w-32 h-32 rounded-full" style="background-color: var(--color-brand-tint); opacity: 0.5; filter: blur(2rem);" aria-hidden="true"></div>
           <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">Premium Upgrades</p>
           <h2 class="font-bold text-2xl mb-4" style="font-family: var(--font-family-display); color: var(--color-content-primary);">Never clean your gutters again</h2>
-          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-content-muted);">Tired of climbing ladders to scoop out leaves and pine needles? We install premium micro-mesh gutter guards that keep out roof grit, pests, and debris while handling the heaviest Texas downpours.</p>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-content-muted);">Tired of climbing ladders to scoop out leaves and pine needles? I install premium micro-mesh gutter guards that keep out roof grit, pests, and debris while handling the heaviest Texas downpours.</p>
           <ul class="space-y-3 mt-auto">
             {[
               'Blocks leaves, pine needles, and shingle grit',

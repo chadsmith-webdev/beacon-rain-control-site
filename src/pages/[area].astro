@@ -79,6 +79,7 @@ const testimonials = [
       height={760}
       class="absolute inset-0 w-full h-full object-cover object-top"
       loading="eager"
+      fetchpriority="high"
       aria-hidden="true"
     />
 
@@ -144,7 +145,7 @@ const testimonials = [
   <section class="py-16 md:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="mb-10">
-        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What We Do in {area.city}</p>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">What I Do in {area.city}</p>
         <h2 class="font-bold" style="font-family: var(--font-family-display); font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: var(--color-content-primary);">
           Gutter services for {area.city} homeowners
         </h2>

@@ -46,6 +46,10 @@ const ogImageUrl = ogImage ?? (import.meta.env.PROD ? `${siteUrl}/og-image.jpg` 
     <meta name="twitter:description" content={description} />
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
+    <!-- Preconnect for analytics -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
     <!-- Google Analytics -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-S3BH6CH22Y"></script>
     <script is:inline>

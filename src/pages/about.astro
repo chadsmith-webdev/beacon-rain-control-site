@@ -23,6 +23,7 @@ const citySlugMap = Object.fromEntries(serviceAreas.map((a) => [a.city, a.slug])
       height={760}
       class="absolute inset-0 w-full h-full object-cover object-center"
       loading="eager"
+      fetchpriority="high"
       aria-hidden="true"
     />
     <div

@@ -42,6 +42,7 @@ const schema = {
       height={760}
       class="absolute inset-0 w-full h-full object-cover object-top"
       loading="eager"
+      fetchpriority="high"
       aria-hidden="true"
     />
 
@@ -136,7 +137,7 @@ const schema = {
             </div>
 
             <div class="flex flex-col gap-2">
-              <label for="message" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Anything else we should know? <span style="color: var(--color-content-muted); font-weight: 400;">(optional)</span></label>
+              <label for="message" class="text-xs font-semibold uppercase tracking-widest" style="color: var(--color-content-muted);">Anything else I should know? <span style="color: var(--color-content-muted); font-weight: 400;">(optional)</span></label>
               <textarea
                 id="message"
                 name="message"

@@ -42,6 +42,15 @@ body {
   font-family: var(--font-family-body);
 }
 
+/* Remove double-tap zoom delay on touch devices */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  touch-action: manipulation;
+}
+
 /* Focus rings — all interactive elements */
 a:focus-visible,
 button:focus-visible,
