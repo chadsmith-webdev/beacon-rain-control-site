@@ -98,6 +98,8 @@ const faqItems = [
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  datePublished: '2026-04-01',
+  dateModified: '2026-04-28',
   mainEntity: faqItems.map(item => ({
     '@type': 'Question',
     name: item.q,
