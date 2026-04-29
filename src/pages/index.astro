@@ -338,15 +338,32 @@ const testimonials = [
         </h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {site.services.map((service) => (
-          <article class="service-card rounded-xl p-6 border flex flex-col gap-3">
+        {site.services.map((service, i) => {
+          const icons = {
+            gutter: `<path d="M3 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4zm0 6a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2zm1 5a1 1 0 0 0 0 2h12a1 1 0 0 0 0-2H4z"/>`,
+            wrench: `<path fill-rule="evenodd" d="M9.352 4C4.456 7.456 1 13.12 1 19.773c0 4.573 2.498 8.56 6.18 10.621a1 1 0 1 0 .976-1.745C5.094 26.805 3 23.494 3 19.773c0-5.747 3.059-10.818 7.432-13.783A10 10 0 0 0 9.352 4zm3.296 0a10 10 0 0 1-1.08 1.99C15.941 8.955 19 14.026 19 19.773c0 3.72-2.094 7.032-5.156 8.876a1 1 0 1 0 .976 1.745C18.502 28.333 21 24.346 21 19.773 21 13.12 17.544 7.456 12.648 4z" clip-rule="evenodd"/>`,
+            shield: `<path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>`,
+            'arrow-down': `<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v9a1 1 0 11-2 0V4a1 1 0 011-1z" clip-rule="evenodd"/>`,
+          };
+          const isPrimary = i === 0;
+          return (
+          <article
+            class="service-card rounded-xl p-6 border flex flex-col gap-3"
+            style={isPrimary
+              ? 'background-color: var(--color-surface-raised); border-color: var(--color-border-strong);'
+              : ''}
+          >
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-1" style="background-color: var(--color-brand-tint);" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5" style="color: var(--color-brand-accent);" set:html={icons[service.icon] ?? icons.gutter} />
+            </div>
             <h3 class="font-semibold text-base" style="color: var(--color-content-primary);">{service.name}</h3>
             <p class="text-sm leading-relaxed flex-1" style="color: var(--color-content-muted);">{service.description}</p>
             <a href={`/services#${service.slug}`} class="text-sm font-semibold hover:underline mt-auto" style="color: var(--color-brand-navy);" aria-label={`Learn more about ${service.name} in Joshua, TX`}>
-              Learn More
+              Learn More →
             </a>
           </article>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
