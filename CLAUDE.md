@@ -20,15 +20,28 @@ Seamless aluminum gutter installation, repair, and gutter guards. Owner-operated
 
 ## Tech Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | Astro (static output) |
-| Styling | Tailwind CSS v4 — design tokens in `src/styles/global.css` via `@theme` block |
-| Images | `<Image />` from `astro:assets` — never raw `<img>` |
-| Icons | Inline SVG only — no icon font libraries |
-| Deployment | Vercel |
+| Layer      | Choice                                                                        |
+| ---------- | ----------------------------------------------------------------------------- |
+| Framework  | Astro (static output)                                                         |
+| Styling    | Tailwind CSS v4 — design tokens in `src/styles/global.css` via `@theme` block |
+| Images     | `<Image />` from `astro:assets` — never raw `<img>`                           |
+| Icons      | Inline SVG only — no icon font libraries                                      |
+| Deployment | Netlify (was Vercel — forms require Netlify Forms)                            |
 
 Do not suggest React, Vue, Next.js, or WordPress. Do not add dependencies without asking.
+
+### Forms
+
+Both forms use **Netlify Forms** — no backend needed.
+
+| Form                                    | `name`             | Spam protection                |
+| --------------------------------------- | ------------------ | ------------------------------ |
+| Hero quick-quote (`index.astro`)        | `quick-quote`      | `netlify-honeypot="bot-field"` |
+| Full estimate request (`contact.astro`) | `estimate-request` | `netlify-honeypot="bot-field"` |
+
+Required attributes on every form: `data-netlify="true"`, `name="{form-name}"`, hidden `<input name="form-name" value="{form-name}" />`, `action="/thank-you"`.
+
+Email notifications configured in Netlify Dashboard → Site → Forms → Form notifications (`estimates@beacon-gutter.com`).
 
 ---
 
@@ -46,6 +59,7 @@ public/           favicon, logo.svg, robots.txt, og-image
 ```
 
 **Key data files:**
+
 - `src/data/site.json` — phone, address, hours, rating, reviewCount, warranty, serviceAreas list, services list
 - `src/data/serviceAreas.json` — array of city objects (`slug`, `city`, `county`, `zip`, `intro`, `localDetail`)
 
@@ -60,23 +74,23 @@ The logo is orange (#fe8636) and navy (#283b77). The site uses a clean light the
 ### Design tokens (defined in `src/styles/global.css`)
 
 ```css
---color-brand-accent: #fe8636;       /* Orange — fill-only (buttons, active indicators) */
---color-brand-accent-dark: #d96b24;  /* Darker orange — hover state on orange buttons */
---color-brand-navy: #283b77;         /* Navy — text, nav, borders, interactive hover */
---color-brand-navy-light: #3a52a0;   /* Lighter navy — secondary interactive states */
---color-brand-tint: #eef0f8;         /* Very light navy tint — subtle section backgrounds */
+--color-brand-accent: #fe8636; /* Orange — fill-only (buttons, active indicators) */
+--color-brand-accent-dark: #d96b24; /* Darker orange — hover state on orange buttons */
+--color-brand-navy: #283b77; /* Navy — text, nav, borders, interactive hover */
+--color-brand-navy-light: #3a52a0; /* Lighter navy — secondary interactive states */
+--color-brand-tint: #eef0f8; /* Very light navy tint — subtle section backgrounds */
 
---color-surface-bg: #ffffff;         /* Page background */
---color-surface-base: #f5f6fb;       /* Cards, nav, footer */
---color-surface-raised: #eceef6;     /* Elevated cards, feature sections */
---color-surface-navy: #283b77;       /* Full navy sections (future use) */
+--color-surface-bg: #ffffff; /* Page background */
+--color-surface-base: #f5f6fb; /* Cards, nav, footer */
+--color-surface-raised: #eceef6; /* Elevated cards, feature sections */
+--color-surface-navy: #283b77; /* Full navy sections (future use) */
 
---color-content-primary: #1a2340;    /* All body and heading text */
---color-content-muted: #556080;      /* Labels, captions, secondary text */
---color-content-on-navy: #ffffff;    /* Text on navy backgrounds */
+--color-content-primary: #1a2340; /* All body and heading text */
+--color-content-muted: #556080; /* Labels, captions, secondary text */
+--color-content-on-navy: #ffffff; /* Text on navy backgrounds */
 
---color-border: rgba(40,59,119,0.10);
---color-border-strong: rgba(40,59,119,0.20);
+--color-border: rgba(40, 59, 119, 0.1);
+--color-border-strong: rgba(40, 59, 119, 0.2);
 ```
 
 ### Color rules
@@ -90,8 +104,8 @@ The logo is orange (#fe8636) and navy (#283b77). The site uses a clean light the
 ### Typography
 
 ```css
---font-family-display: Georgia, "Times New Roman", serif;   /* Headings only */
---font-family-body: "Helvetica Neue", Arial, sans-serif;    /* All body/UI text */
+--font-family-display: Georgia, "Times New Roman", serif; /* Headings only */
+--font-family-body: "Helvetica Neue", Arial, sans-serif; /* All body/UI text */
 ```
 
 - Display: `font-bold`, `letter-spacing: -0.02em`, size via `clamp()`
@@ -101,24 +115,37 @@ The logo is orange (#fe8636) and navy (#283b77). The site uses a clean light the
 ### Component patterns
 
 **Standard card:**
+
 ```html
-<div style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
-     class="rounded-xl p-6 border">
+<div
+  style="background-color: var(--color-surface-raised); border-color: var(--color-border-strong);"
+  class="rounded-xl p-6 border"
+></div>
 ```
 
 **Primary CTA:**
+
 ```html
-<a class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm">
+<a
+  class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm"
+></a>
 ```
 
 **Secondary CTA:**
+
 ```html
-<a class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border">
+<a
+  class="cta-secondary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm border"
+></a>
 ```
 
 **Section eyebrow:**
+
 ```html
-<p class="text-xs font-semibold uppercase tracking-widest mb-3" style="color: var(--color-brand-accent);">
+<p
+  class="text-xs font-semibold uppercase tracking-widest mb-3"
+  style="color: var(--color-brand-accent);"
+></p>
 ```
 
 **Hero section:** Full-bleed photo + dark gradient overlay + bottom fade to `var(--color-surface-bg)`. Min-height: `clamp(560px, 70vh, 760px)` — consistent across all pages.
@@ -127,16 +154,16 @@ The logo is orange (#fe8636) and navy (#283b77). The site uses a clean light the
 
 ## Pages
 
-| Route | File | Notes |
-|---|---|---|
-| `/` | `pages/index.astro` | Homepage — hero, services, owner bio, reviews, FAQ |
-| `/services` | `pages/services.astro` | All 4 services with detail sections |
-| `/about` | `pages/about.astro` | Tracy's story, owner photo, service area tags |
-| `/service-areas` | `pages/service-areas.astro` | Hub page — links to all city pages |
-| `/contact` | `pages/contact.astro` | Contact form + phone + address |
-| `/[area]` | `pages/[area].astro` | Dynamic city landing pages from `serviceAreas.json` |
-| `/seamless-vs-sectional-gutters` | `pages/seamless-vs-sectional-gutters.astro` | Educational article |
-| `/5-inch-vs-6-inch-gutters` | `pages/5-inch-vs-6-inch-gutters.astro` | Educational article |
+| Route                            | File                                        | Notes                                               |
+| -------------------------------- | ------------------------------------------- | --------------------------------------------------- |
+| `/`                              | `pages/index.astro`                         | Homepage — hero, services, owner bio, reviews, FAQ  |
+| `/services`                      | `pages/services.astro`                      | All 4 services with detail sections                 |
+| `/about`                         | `pages/about.astro`                         | Tracy's story, owner photo, service area tags       |
+| `/service-areas`                 | `pages/service-areas.astro`                 | Hub page — links to all city pages                  |
+| `/contact`                       | `pages/contact.astro`                       | Contact form + phone + address                      |
+| `/[area]`                        | `pages/[area].astro`                        | Dynamic city landing pages from `serviceAreas.json` |
+| `/seamless-vs-sectional-gutters` | `pages/seamless-vs-sectional-gutters.astro` | Educational article                                 |
+| `/5-inch-vs-6-inch-gutters`      | `pages/5-inch-vs-6-inch-gutters.astro`      | Educational article                                 |
 
 **Navigation links:** Services, About, Areas, Learn, Contact. CTA button: "Get a Free Estimate in Joshua, TX."
 
@@ -158,6 +185,7 @@ Tracy speaks directly to homeowners. First person singular throughout — **"I" 
 ## SEO Requirements
 
 Every page must have:
+
 - Unique `<title>` and `<meta name="description">` set in frontmatter
 - `<link rel="canonical">` via `BaseLayout`
 - One `<h1>` above the fold, then `<h2>` → `<h3>` — never skip levels
