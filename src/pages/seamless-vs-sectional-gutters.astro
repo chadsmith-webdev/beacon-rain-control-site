@@ -25,8 +25,49 @@ const schema = {
     url: 'https://beaconraincontrol.com',
   },
   datePublished: '2026-04-25',
-  dateModified: '2026-04-25',
+  dateModified: '2026-04-28',
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  datePublished: '2026-04-25',
+  dateModified: '2026-04-28',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the difference between seamless and sectional gutters?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Seamless gutters are cut from a single aluminum run on-site — no joints along straight sections, only at corners and downspout connections. Sectional gutters join pre-cut pieces with sealant that Texas heat and cold cycles cause to fail over time. Seamless gutters eliminate joint failures along the run.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do seamless gutters cost more than sectional gutters?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Seamless gutters cost more upfront than sectional gutters because they require a truck-mounted gutter machine and professional installation. However, they rarely need repairs at the seams, making them more cost-effective for most homeowners over a 10–15 year period.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do sectional gutters fail in Texas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Texas temperature swings — hot summers and cold snaps — cause the metal at sectional gutter joints to expand and contract repeatedly. Over time the sealant opens up, allowing water to leak behind the fascia and cause rot and foundation damage.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How are seamless gutters installed?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A truck-mounted gutter machine feeds an aluminum coil through rollers that form the K-style profile. The gutter comes out shaped and sized to the exact length of your roofline. Beacon Rain Control fabricates every run on-site so nothing is adapted from stock sections.',
+      },
+    },
+  ],
 };
 ---
 
@@ -170,4 +211,5 @@ const schema = {
   </article>
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 </BaseLayout>

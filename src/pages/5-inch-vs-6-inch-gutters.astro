@@ -23,8 +23,49 @@ const schema = {
     url: 'https://beaconraincontrol.com',
   },
   datePublished: '2026-04-25',
-  dateModified: '2026-04-25',
+  dateModified: '2026-04-28',
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  datePublished: '2026-04-25',
+  dateModified: '2026-04-28',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the difference between 5-inch and 6-inch gutters?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Five-inch and 6-inch refer to the opening width of K-style gutters — the most common residential profile. A 6-inch gutter holds approximately 40% more water volume than a 5-inch and uses larger 3×4-inch rectangular downspouts instead of 2×3-inch.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I choose 6-inch gutters instead of 5-inch?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Six-inch gutters are recommended for homes with steep roof pitches above 6/12, drainage zones larger than 1,500 square feet, or a history of overflow during heavy rain. Most standard Johnson County homes with typical pitch and roof area are correctly served by 5-inch gutters.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much more water can a 6-inch gutter handle than a 5-inch gutter?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A 6-inch K-style aluminum gutter handles approximately 40% more water volume than a 5-inch K-style gutter, based on cross-sectional area: 7.96 square inches vs. 5.18 square inches. Downspouts must also be upsized to 3×4-inch rectangular when using 6-inch gutters.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do 5-inch gutters need different downspouts than 6-inch gutters?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Five-inch K-style gutters use 2×3-inch rectangular downspouts, while 6-inch gutters require 3×4-inch rectangular downspouts. Using undersized downspouts with 6-inch gutters creates a bottleneck and defeats the purpose of upgrading gutter capacity.',
+      },
+    },
+  ],
 };
 ---
 
@@ -168,4 +209,5 @@ const schema = {
   </article>
 
   <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 </BaseLayout>
