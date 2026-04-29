@@ -5,7 +5,30 @@ import serviceAreas from '../data/serviceAreas.json';
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t mt-20" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
+<footer class="mt-20">
+  <!-- Pre-footer CTA strip -->
+  <div style="background-color: var(--color-brand-navy);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest mb-2" style="color: var(--color-brand-accent);">Free Estimates — Joshua, TX</p>
+        <p class="font-bold leading-tight" style="font-family: var(--font-family-display); font-size: clamp(1.4rem, 3vw, 2rem); color: #ffffff;">
+          Ready to stop worrying about your gutters?
+        </p>
+        <p class="text-sm mt-2" style="color: rgba(255,255,255,0.65);">Same-day estimates. 5-year written warranty. No subcontractors.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+        <a href="/contact" class="cta-primary inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm whitespace-nowrap">
+          Get a Free Estimate
+        </a>
+        <a href={site.phoneLink} class="inline-flex items-center justify-center px-7 py-3.5 rounded font-semibold text-sm whitespace-nowrap border" style="border-color: rgba(255,255,255,0.25); color: #ffffff; transition: border-color 0.15s ease, background-color 0.15s ease;" onmouseover="this.style.borderColor='rgba(254,134,54,0.5)';this.style.backgroundColor='rgba(254,134,54,0.1)';" onmouseout="this.style.borderColor='rgba(255,255,255,0.25)';this.style.backgroundColor='transparent';">
+          {site.phone}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer body -->
+  <div class="border-t" style="background-color: var(--color-surface-base); border-color: var(--color-border);">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
 
@@ -25,7 +48,7 @@ const year = new Date().getFullYear();
 
       <!-- Services -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Services</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Services</h3>
         <ul class="space-y-2">
           {site.services.map((s) => (
             <li>
@@ -37,19 +60,22 @@ const year = new Date().getFullYear();
 
       <!-- Service areas -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Service Areas</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Service Areas</h3>
         <ul class="space-y-2">
-          {serviceAreas.map((area) => (
+          {serviceAreas.slice(0, 6).map((area) => (
             <li>
               <a href={`/${area.slug}`} class="footer-link text-sm">{area.city}</a>
             </li>
           ))}
+          <li>
+            <a href="/service-areas" class="footer-link text-sm font-semibold">All service areas →</a>
+          </li>
         </ul>
       </div>
 
       <!-- Contact -->
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent-dark);">Contact</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-widest mb-4" style="color: var(--color-brand-accent);">Contact</h3>
         <address class="not-italic space-y-2">
           <p class="text-sm" style="color: var(--color-content-muted);">
             {site.address.street}<br />
@@ -58,13 +84,6 @@ const year = new Date().getFullYear();
           <p><a href={site.phoneLink} class="footer-link text-sm">{site.phone}</a></p>
           <p><a href={`mailto:${site.email}`} class="footer-link text-sm">{site.email}</a></p>
         </address>
-        <a
-          href="/contact"
-          class="nav-cta inline-block mt-6 text-sm font-semibold px-5 py-2.5 rounded border"
-          aria-label="Request a free gutter estimate in Joshua, TX"
-        >
-          Get a Free Estimate in Joshua, TX
-        </a>
       </div>
     </div>
 
@@ -76,5 +95,6 @@ const year = new Date().getFullYear();
         Joshua, TX 76058 &mdash; Licensed &amp; Insured
       </p>
     </div>
+  </div>
   </div>
 </footer>
