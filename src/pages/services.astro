@@ -62,9 +62,25 @@ const services = [
     note: 'Most homes need one downspout per 30–40 linear feet of gutter.',
   },
 ];
+
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Gutter Services — Beacon Rain Control',
+  description: 'Seamless gutter installation, repair, guards, and downspout services in Joshua, TX and Johnson County.',
+  dateModified: '2026-04-28',
+  itemListElement: services.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: s.name,
+    description: s.intro,
+    url: `https://beaconraincontrol.com/services#${s.slug}`,
+  })),
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(servicesSchema)} />
   <!-- Page header -->
   <section class="relative overflow-hidden" style="min-height: clamp(560px, 70vh, 760px);">
     <!-- Background image -->
